@@ -12,10 +12,11 @@ Working through The Odin Project and applying what I learnt with each project.
     - game
     - genre
     - developer
-- Set up routes and controllers
+- Set up routes and controllers.
 - Add functionality to add and update games in the database.
 - Figure out how to add the ability to delete a game or a category of games.
 - Deploy the app to a service provider.
+- Add basic authentication using LocalStrategy from `passport-local`.
 
 ## Acknowledgement
 A big thanks to The Odin Project for providing an amazing community and enriching lessons.
