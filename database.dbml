@@ -1,0 +1,39 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table game {
+    id integer [primary key]
+    title varchar
+    year integer
+}
+
+Table developer {
+    id integer [primary key]
+    name varchar
+}
+
+Table genre {
+    id integer [primary key]
+    name varchar
+}
+
+Table game_developer {
+    id integer [primary key]
+    game_id integer [not null]
+    developer_id integer [not null]
+}
+
+Table game_genre {
+    id integer [primary key]
+    game_id integer [not null]
+    genre_id integer [not null]
+}
+
+Ref: "game"."id" < "game_developer"."game_id"
+
+Ref: "developer"."id" < "game_developer"."developer_id"
+
+Ref: "genre"."id" < "game_genre"."genre_id"
+
+Ref: "game"."id" < "game_genre"."game_id"
+
