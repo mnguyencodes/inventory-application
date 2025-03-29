@@ -1,6 +1,5 @@
-import "dotenv/config"
+import "@dotenvx/dotenvx/config"
 import express from "express"
-import {VIEWS_DIR, PUBLIC_DIR} from "./utils/utils.ts"
 import {developerRouter} from "./routes/developer.ts"
 import {gameRouter} from "./routes/game.ts"
 import {genreRouter} from "./routes/genre.ts"
