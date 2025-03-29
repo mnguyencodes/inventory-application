@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        // "outDir": "./dist",
+        // "rootDir": "./src",
+        // "noImplicitAny": true,
+        // "skipLibCheck": true,
+        // "target": "es6",
+        // "jsx": "react-jsx",
+        // "module": "es6",
+        // "allowSyntheticDefaultImports": true,
+        // "esModuleInterop": true,
+        // "sourceMap": true,
+        // "allowJs": true,
+        // "moduleResolution": "node",
+        "noImplicitAny": true,
+        "target": "ES6",
+        "module": "ES6",
+    },
+    "include": ["./src/public/scripts/**/*.ts"],
+    // "exclude": [
+    //     "node_modules",
+    // ],
+    // "include" : [
+    //     "src/**/*",
+    // ],
+    // "exclude": [
+    //     "node_modules",
+    // ],
+}

@@ -1,14 +1,14 @@
 import "dotenv/config"
 import express from "express"
-import {VIEWS_DIR, PUBLIC_DIR} from "./utils/utils.ts"
-import {developerRouter} from "./routes/developer.ts"
-import {gameRouter} from "./routes/game.ts"
-import {genreRouter} from "./routes/genre.ts"
+import {VIEWS_DIR, PUBLIC_DIR, DIST_DIR} from "./src/utils/utils"
+import {developerRouter} from "./src/routes/developer"
+import {gameRouter} from "./src/routes/game"
+import {genreRouter} from "./src/routes/genre"
 
 const app = express()
 app.set("views", VIEWS_DIR)
 app.set("view engine", "ejs")
-app.use(express.static(PUBLIC_DIR))
+app.use(express.static(DIST_DIR))
 app.use(express.urlencoded({extended: true}))
 
 app.get("/", (req, res, next)=>{
