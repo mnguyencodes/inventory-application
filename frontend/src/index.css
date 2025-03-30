@@ -11,6 +11,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* TODO: Set up color variant for light and dark modes */
+  --main-color-light: #eff2f5;
+  /* --second-color-light:  */
+  box-sizing: border-box;
 }
 
 a {
@@ -22,11 +27,13 @@ a:hover {
   color: #535bf2;
 }
 
+html, 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
+  justify-content: center;
+  background-color: #eff2f5;
   min-height: 100vh;
 }
 
