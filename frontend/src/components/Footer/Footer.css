@@ -1,0 +1,12 @@
+footer {
+    margin-top: auto;
+    text-align: center;
+    margin-inline: 0;
+    background-color: #FFFFFF;
+    padding: 1em;
+}
+
+footer > h2 {
+    font-size: 0.75rem;
+    margin: 0;
+}
