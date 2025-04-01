@@ -22,7 +22,8 @@ img {
 nav > ul {
     position: relative;
     text-decoration: none;
-    padding: 0;
+    padding: 0.5em;
+    margin: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
