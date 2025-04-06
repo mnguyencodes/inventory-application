@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx --watch server.ts",
     "build": "tsc",
-    "start": "tsx dist/server.ts",
+    "start": "tsx dist/server.js",
     "populatedb": "npx tsx ./db/populatedb.ts"
   },
   "keywords": [],
