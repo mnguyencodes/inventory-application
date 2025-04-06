@@ -1,6 +1,6 @@
 import "@dotenvx/dotenvx/config"
 import express, {Request, Response, NextFunction} from "express"
-import {gameRouter} from "./routes/game"
+import {gameRouter} from "./src/routes/game"
 
 const app = express()
 app.set("view engine", "ejs")
