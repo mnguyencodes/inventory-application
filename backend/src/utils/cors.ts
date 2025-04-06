@@ -1,14 +1,13 @@
+import {Request} from "express"
 import cors from "cors"
 
-const allowList = ["http://localhost:5173/"]
+const allowedList: String[] = ["http://localhost:5173/"]
 
-const corsOptionsDelegate = (req, callback) => {
-    const corsOptions = allowList.indexOf(req.header("Origin")) !== -1
+export const corsOptionsDelegate = (req: Request, callback: ((err: Error | null, options?: cors.CorsOptions) => void))=>{
+    const corsOptions: cors.CorsOptions = allowedList.indexOf(req.header("Origin")!) !== -1
         ? { origin: true }
         : { origin: false }
     callback(null, corsOptions)
 }
 
-export default {
-    corsOptionsDelegate
-}
+export const corsUtil = cors(corsOptionsDelegate)
