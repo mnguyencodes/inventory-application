@@ -1,20 +1,16 @@
 import "@dotenvx/dotenvx/config"
-import express from "express"
-import {developerRouter} from "./routes/developer.ts"
-import {gameRouter} from "./routes/game.ts"
-import {genreRouter} from "./routes/genre.ts"
+import express, {Request, Response, NextFunction} from "express"
+import {gameRouter} from "./routes/game"
 
 const app = express()
 app.set("view engine", "ejs")
 app.use(express.urlencoded({extended: true}))
 
-app.get("/", (req, res, next)=>{
+app.get("/", (req: Request, res: Response, next: NextFunction)=>{
     res.render("index", {title: "Home"})
 })
 
-app.use("/developers", developerRouter)
 app.use("/games", gameRouter)
-app.use("/genres", genreRouter)
 
 const PORT = process.env.PORT || 3000
 
