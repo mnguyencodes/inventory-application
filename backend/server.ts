@@ -1,21 +1,18 @@
 import "@dotenvx/dotenvx/config"
 import express from "express"
-import {developerRouter} from "./routes/developer.ts"
-import {gameRouter} from "./routes/game.ts"
-import {genreRouter} from "./routes/genre.ts"
+import {gameRouter} from "./src/routes/game"
+import {corsUtil} from "./src/utils/cors"
 
-const app = express()
-app.set("view engine", "ejs")
-app.use(express.urlencoded({extended: true}))
+const server = express()
+server.use(express.urlencoded({extended: true}))
+server.use(corsUtil)
 
-app.get("/", (req, res, next)=>{
-    res.render("index", {title: "Home"})
+server.get("/", (req, res, next)=>{
+    res.send("Welcome to the homepage!")
 })
 
-app.use("/developers", developerRouter)
-app.use("/games", gameRouter)
-app.use("/genres", genreRouter)
+server.use("/games", gameRouter)
 
 const PORT = process.env.PORT || 3000
 
-app.listen(PORT, ()=>{console.log(`Server running at http://localhost:${PORT}/`)})
+server.listen(PORT, ()=>{console.log(`Server running at http://localhost:${PORT}/`)})
