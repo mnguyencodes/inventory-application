@@ -1,9 +1,9 @@
 import queries from "../db/queries"
 import asyncHandler from "express-async-handler"
 
-const addGenre = asyncHandler(async(name)=>{
+const addGenre = async(name: string)=>{
     await queries.addDeveloper(name)
-})
+}
 
 export default {
     addGenre
