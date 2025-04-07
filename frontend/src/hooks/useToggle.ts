@@ -6,11 +6,6 @@ type toggleParams = {
     onToggle: () => void
 }
 
-type toggleReturn = {
-    on: boolean
-    toggle: CallableFunction
-}
-
 export default function useToggle({
     initialValue = false,
     onToggle = () => {}

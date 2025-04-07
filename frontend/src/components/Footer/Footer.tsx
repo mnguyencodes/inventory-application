@@ -1,9 +1,10 @@
-import "./Footer.css"
+import styles from "./Footer.module.css"
+import {AppShell} from "@mantine/core"
 
 export default function() {
     return (
-        <footer>
+        <AppShell.Footer className={styles.footer}>
             <h2>Inventory Application © {new Date().getFullYear()}</h2>
-        </footer>
+        </AppShell.Footer>
     )
 }
