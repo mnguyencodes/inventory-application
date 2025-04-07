@@ -21,3 +21,7 @@ body {
   background-color: #eff2f5;
   min-height: 100vh;
 }
+
+main {
+  grid-column-start: 2;
+}
