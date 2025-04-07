@@ -1,28 +1,42 @@
-import "./Header.css"
-import Menu from "../Menu/index"
-import logo from "./logo.png"
-import {Link} from "react-router"
-import { faHouseChimney } from "@fortawesome/free-solid-svg-icons"
+// import styles from "./Header.module.css"
+// import logo from "./logo.png"
+// import {Link} from "react-router"
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+// import {faHouseChimney} from "@fortawesome/free-solid-svg-icons"
+// import { faGamepad } from "@fortawesome/free-solid-svg-icons/faGamepad"
 
-import { faGamepad } from "@fortawesome/free-solid-svg-icons/faGamepad"
+import styles from "./Header.module.css"
 
-export default function Header() {
+// import "./Header.module.css"
+
+import {
+    Burger,
+    AppShell,
+    // Group
+} from "@mantine/core"
+
+interface HeaderProps {
+    opened: boolean
+    toggle: () => void
+}
+
+export default function Header({opened, toggle}: HeaderProps) {
+    
+
     return (
-        <header>
-            <nav>
-                <ul>
-                    <Menu.Menu>
-                        <Menu.MenuIcon />
-                        <Menu.MenuDropdown>
-                            <Menu.MenuItem icon={faHouseChimney} to=".">Home</Menu.MenuItem>
-                            <Menu.MenuItem icon={faGamepad} to="games">Games</Menu.MenuItem>
-                        </Menu.MenuDropdown>
-                    </Menu.Menu>
-                    <Link to="." className="logo">
-                        <img src={logo} />
-                    </Link>
-                </ul>
-            </nav>
-        </header>
+        <>
+            <AppShell.Header>
+                <Burger
+                opened={opened}
+                onClick={toggle}
+                hiddenFrom="sm"
+                size="sm"
+                />
+                <div>Logo</div>
+            </AppShell.Header>
+
+            <AppShell.Navbar className={styles.nav} p="md">Navbar</AppShell.Navbar>
+        </>
+
     )
 }
