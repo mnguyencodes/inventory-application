@@ -5,7 +5,7 @@
 // import {faHouseChimney} from "@fortawesome/free-solid-svg-icons"
 // import { faGamepad } from "@fortawesome/free-solid-svg-icons/faGamepad"
 
-import styles from "./Header.module.css"
+// import styles from "./_sty/es/Header.module.css"
 
 // import "./Header.module.css"
 
@@ -15,13 +15,12 @@ import {
     // Group
 } from "@mantine/core"
 
-interface HeaderProps {
-    opened: boolean
-    toggle: () => void
-}
+import {useContext} from "react"
+import {AppShellInitContext} from "./AppShellInit"
 
-export default function Header({opened, toggle}: HeaderProps) {
-    
+export default function Header() {
+
+    const {opened, toggle} = useContext(AppShellInitContext)
 
     return (
         <>
@@ -34,9 +33,7 @@ export default function Header({opened, toggle}: HeaderProps) {
                 />
                 <div>Logo</div>
             </AppShell.Header>
-
-            <AppShell.Navbar className={styles.nav} p="md">Navbar</AppShell.Navbar>
         </>
-
     )
 }
+
