@@ -1,7 +1,7 @@
 import "@mantine/core/styles.css"
 import { MantineProvider } from "@mantine/core"
 import './App.css'
-import Layout from "./components/Layout/Layout"
+import Layout from "./components/Layout"
 import Home from "./pages/Home"
 import {BrowserRouter, Routes, Route} from "react-router"
 

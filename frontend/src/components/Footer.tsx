@@ -1,4 +1,4 @@
-import styles from "./Footer.module.css"
+import styles from "./_styles/Footer.module.css"
 import {AppShell} from "@mantine/core"
 
 export default function() {
