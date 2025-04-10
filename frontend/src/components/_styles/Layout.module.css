@@ -1,17 +1,18 @@
 .main {
     padding: 1em;
     margin-top: var(--app-shell-header-offset);
+    margin-bottom: var(--app-shell-footer-offset);
 }
 
 @media (min-width: $mantine-breakpoint-sm) {
     .main {
         margin-left: var(--app-shell-navbar-width);
-        padding: 1.5em;
+        padding: 2em;
     }
 }
 
 @media (min-width: $mantine-breakpoint-lg) {
     .main {
-        padding: 2em;
+        padding: 3em;
     }
 }
