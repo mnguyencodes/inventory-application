@@ -1,5 +1,4 @@
 .main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    background-color: #eff2f5;
+    padding-inline: 1em;
+    margin-left: var(--app-shell-navbar-width);
 }
