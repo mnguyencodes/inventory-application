@@ -1,4 +1,4 @@
-import "./_global.css"
+import "../_global.css"
 
 
 export default function Home() {

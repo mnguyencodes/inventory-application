@@ -1,71 +1,24 @@
-/* .header {
-    max-width: 768px;
-    min-width: 320px;
-} */
-
-.nav {
-    /* background-color: #e6e6e6; */
-}
-
-.nav_container a.logo {
-    grid-column-start: 2;
-    justify-self: center;
-    height: auto;
-    padding: 0;
-}
-
-.nav_container img {
-    display: block;
-    grid-column-start: 2;
-    justify-self: center;
-    width: 30px;
-    height: 30px;
-}
-
-.nav_container ul {
-    position: relative;
-    list-style: none;
-    padding: 0.5em;
-    margin: 0;
+.header {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
 }
 
-.dropdown_container {
-    /* width: 500px;
-    height: 500px;
-    display: grid;
-    grid-template-columns: 50px auto;
-    background-color: red; */
-    /* min-width: 100vw;
-    max-width: 100%; */
-
+.burger {
+    grid-column-start: 1;
+    margin-left: 1em;
 }
 
-.item {
-
+.logo {
+    grid-column-start: 2;
+    justify-self: center;
 }
 
-.mantine-Menu-dropdown {
-    /* width: 100vw;
-    background-color: pink; */
+@media (min-width: $mantine-breakpoint-sm) {
+    .logo {
+        grid-column-start: 1;
+        justify-self: start;
+        margin-left: 1em;
+    }
 }
-
-.mantine-Menu-item {
-    /* color: red; */
-    /* display: grid;
-    grid-template-columns: 50px auto; */
-}
-
-.fa_icon {
-
-}
-
-/* a.menu-item {
-    display: grid;
-    grid-template-columns: 30px auto;
-    padding: 1em;
-    font-size: 0.75rem;
-    color: #676767;
-} */

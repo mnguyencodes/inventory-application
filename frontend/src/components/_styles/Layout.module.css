@@ -1,5 +1,18 @@
 .main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    background-color: #eff2f5;
+    padding: 1em;
+    margin-top: var(--app-shell-header-offset);
+    margin-bottom: var(--app-shell-footer-offset);
+}
+
+@media (min-width: $mantine-breakpoint-sm) {
+    .main {
+        margin-left: var(--app-shell-navbar-width);
+        padding: 2em;
+    }
+}
+
+@media (min-width: $mantine-breakpoint-lg) {
+    .main {
+        padding: 3em;
+    }
 }

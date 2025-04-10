@@ -17,6 +17,7 @@ import {
 
 import {useContext} from "react"
 import {AppShellInitContext} from "./AppShellInit"
+import styles from "./_styles/Header.module.css"
 
 export default function Header() {
 
@@ -24,16 +25,16 @@ export default function Header() {
 
     return (
         <>
-            <AppShell.Header>
+            <AppShell.Header className={styles.header}>
                 <Burger
-                opened={opened}
-                onClick={toggle}
-                hiddenFrom="sm"
-                size="sm"
+                    opened={opened}
+                    onClick={toggle}
+                    hiddenFrom="sm"
+                    size="sm"
+                    className={styles.burger}
                 />
-                <div>Logo</div>
+                <div className={styles.logo}>Logo</div>
             </AppShell.Header>
         </>
     )
 }
-
