@@ -10,11 +10,11 @@
     background-color: #eff2f5; /* #1 Must be the same as #2 */
 }
   
-h1 {
-    padding: 0.5em;
-    font-size: 1rem;
+h1,
+p {
+    margin: 0 0 1em 0;
 }
-  
+
 html, 
 body {
     margin: 0;
