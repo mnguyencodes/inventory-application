@@ -13,3 +13,23 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Game {
+  id        Int         @id @default(autoincrement())
+  title     String      @db.VarChar(255)
+  year      Int
+  genre     Genre[]
+  developer Developer[]
+}
+
+model Developer {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(255)
+  game Game[]
+}
+
+model Genre {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(255)
+  game Game[]
+}
