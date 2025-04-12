@@ -1,6 +1,7 @@
 import {AppShell} from "@mantine/core";
 import styles from "./_styles/Navbar.module.css"
-import {NavLink} from "@mantine/core"
+import {NavLink as NavLinkMantine} from "@mantine/core"
+import {NavLink} from "react-router"
 import {useState} from "react"
 import navbarData from "./utils/Navbar-Data"
 
@@ -10,13 +11,15 @@ export default function Navbar() {
 
     const navbarEl = navbarData.map((navlink, index)=>{
         console.log("Inside map!")
-        return <NavLink 
-            href={navlink.href}
+        return <NavLinkMantine
+            component={NavLink}
+            to={navlink.href}
             key={navlink.text}
             label={navlink.text}
             active={index === active}
             leftSection={<navlink.icon size={16} stroke={1.5}/>}
             onClick={()=>setActive(index)}
+            variant="filled"
         />
     })
 
