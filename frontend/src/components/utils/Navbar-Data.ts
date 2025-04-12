@@ -1,25 +1,26 @@
 import {ForwardRefExoticComponent} from "react"
 import {NavLinkProps} from "@mantine/core"
-import {IconProps} from "@tabler/icons-react"
 import {
     IconDeviceGamepad2,
-    IconHome
+    IconHome,
+    IconProps
 } from "@tabler/icons-react"
 
 interface MyNavLinkProps extends NavLinkProps {
     icon: ForwardRefExoticComponent<IconProps>
     href: string
+    text: string
 }
 
 const navbarData: MyNavLinkProps[] = [
     {
         href: "/",
-        label: "Home",
+        text: "Home",
         icon: IconHome,
     },
     {
         href: "/games",
-        label: "Games",
+        text: "Games",
         icon: IconDeviceGamepad2,
     },
 ]
