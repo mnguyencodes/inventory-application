@@ -34,7 +34,12 @@ const gamesPost = (async(
 })
 
 const gamesGet = (async() => {
-    const allGames = await pool.game.findMany()
+    const allGames = await pool.game.findMany({
+        include: {
+            genre: true,
+            developer: true
+        }
+    })
     return allGames
 })
 
