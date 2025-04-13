@@ -9,7 +9,7 @@ export type Developer = {
     name: string
 }
 
-const addGame = (async(
+const gamesPost = (async(
     title: string, 
     year: number, 
     genre: Genre[], 
@@ -39,6 +39,6 @@ const gamesGet = (async() => {
 })
 
 export default {
-    addGame,
+    gamesPost,
     gamesGet
 }

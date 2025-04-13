@@ -1,15 +1,21 @@
 import queries, { Genre, Developer } from "../db/queries"
 import asyncHandler from "express-async-handler"
 
-const addGame = async(
+const gamesPost = async(
     title: string, 
     year: number,
     genre: Genre[],
     developer: Developer[]
 ) => {
-    await queries.addGame(title, year, genre, developer)
+    await queries.gamesPost(title, year, genre, developer)
 }
 
+const gamesGet = (async() => {
+    const allGames = await queries.gamesGet()
+    return allGames
+})
+
 export default {
-    addGame
+    gamesPost,
+    gamesGet
 }
