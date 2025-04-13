@@ -1,8 +1,11 @@
 import {Router} from "express"
 import {corsUtil} from "../utils/cors"
+import gameController from "../controllers/gameController"
 
 export const gameRouter = Router()
 
-gameRouter.get("/", corsUtil, (req, res, next) => {
-    res.send("You successfully created your first CORS enabled route for an allowed domain!!")
+gameRouter.get("/", corsUtil, async(req, res, next) => {
+    const allGames = await gameController.gamesGet()
+    res.json(allGames)
+    return
 })
