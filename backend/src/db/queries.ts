@@ -33,6 +33,12 @@ const addGame = (async(
     })
 })
 
+const gamesGet = (async() => {
+    const allGames = await pool.game.findMany()
+    return allGames
+})
+
 export default {
     addGame,
+    gamesGet
 }
