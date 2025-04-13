@@ -6,8 +6,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx --watch server.ts",
     "build": "tsc",
-    "start": "tsx dist/server.js",
-    "populatedb": "npx tsx ./db/populatedb.ts"
+    "start": "tsx dist/server.js"
+  },
+  "prisma": {
+    "seed": "tsx src/db/prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +17,8 @@
   "description": "",
   "dependencies": {
     "@dotenvx/dotenvx": "^1.39.0",
+    "@prisma/client": "^6.6.0",
+    "@prisma/extension-accelerate": "^1.3.0",
     "cors": "^2.8.5",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
@@ -27,6 +31,7 @@
     "@types/express": "^5.0.1",
     "@types/node": "^22.13.11",
     "@types/pg": "^8.11.11",
+    "prisma": "^6.6.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3"
   }

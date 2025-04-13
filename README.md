@@ -17,6 +17,7 @@ Working through The Odin Project and applying what I learnt with each project.
 - Figure out how to add the ability to delete a game or a category of games.
 - Deploy the app to a service provider.
 - Add basic authentication using LocalStrategy from `passport-local`.
+- Use Prisma ORM for all database operations.
 
 ## Acknowledgement
 A big thanks to The Odin Project for providing an amazing community and enriching lessons.

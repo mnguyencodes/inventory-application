@@ -1,20 +1,38 @@
+import "@dotenvx/dotenvx/config"
 import pool from "./pool"
 
-async function addGame(title: string, year: number) {
-    await pool.query("INSERT INTO game VALUES ($1, $2)", [title, year])
+type Genre = {
+    name: string
 }
 
-async function addGenre(name: string) {
-    await pool.query("INSERT INTO genre VALUES ($1)", [name])
+type Developer = {
+    name: string
 }
 
-async function addDeveloper(name: string) {
-    await pool.query("INSERT INTO developer VALUES ($1)", [name])
-}
+const addGame = (async(
+    title: string, 
+    year: number, 
+    genre: Genre[], 
+    developer: Developer[]) => 
+{
+    await pool.game.create({
+        data: {
+            title: title,
+            year: year,
+            genre: {
+                create: [
+                    ...genre
+                ],
+            },
+            developer: {
+                create: [
+                    ...developer
+                ],
+            },
+        },
+    })
+})
 
 export default {
     addGame,
-    addGenre,
-    addDeveloper
 }
-
