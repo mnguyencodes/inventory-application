@@ -1,11 +1,11 @@
 import "@dotenvx/dotenvx/config"
 import pool from "./pool"
 
-type Genre = {
+export type Genre = {
     name: string
 }
 
-type Developer = {
+export type Developer = {
     name: string
 }
 
