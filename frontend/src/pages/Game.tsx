@@ -22,12 +22,12 @@ export default function Game() {
 
     const gamesEl = data && data.map((game) => {
         const genres = game.genre.map(genre => {
-            genre.name
-        }).join("")
+            return genre.name
+        }).join(", ")
 
         const developers = game.developer.map(developer => {
-            developer.name
-        }).join("")
+            return developer.name
+        }).join(", ")
         
         return <div
         >
