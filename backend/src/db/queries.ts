@@ -1,15 +1,15 @@
 import "@dotenvx/dotenvx/config"
 import pool from "./pool"
 
-type Genre = {
+export type Genre = {
     name: string
 }
 
-type Developer = {
+export type Developer = {
     name: string
 }
 
-const addGame = (async(
+const gamesPost = (async(
     title: string, 
     year: number, 
     genre: Genre[], 
@@ -33,6 +33,17 @@ const addGame = (async(
     })
 })
 
+const gamesGet = (async() => {
+    const allGames = await pool.game.findMany({
+        include: {
+            genre: true,
+            developer: true
+        }
+    })
+    return allGames
+})
+
 export default {
-    addGame,
+    gamesPost,
+    gamesGet
 }

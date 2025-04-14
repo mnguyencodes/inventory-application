@@ -1,6 +1,6 @@
 import pool from "./pool"
 
-async function addGame(title: string, year: number) {
+async function gamesPost(title: string, year: number) {
     await pool.query("INSERT INTO game VALUES ($1, $2)", [title, year])
 }
 
@@ -13,7 +13,7 @@ async function addDeveloper(name: string) {
 }
 
 export default {
-    addGame,
+    gamesPost,
     addGenre,
     addDeveloper
 }
