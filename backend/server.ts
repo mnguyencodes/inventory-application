@@ -2,6 +2,7 @@ import "@dotenvx/dotenvx/config"
 import express from "express"
 import {gameRouter} from "./src/routes/game"
 import {corsUtil} from "./src/utils/cors"
+import {errorHandler} from "./src/errors/errorHandler"
 
 const server = express()
 server.use(express.urlencoded({extended: true}))
@@ -12,6 +13,8 @@ server.get("/", (req, res, next)=>{
 })
 
 server.use("/games", gameRouter)
+
+server.use(errorHandler)
 
 const PORT = process.env.PORT || 3000
 
