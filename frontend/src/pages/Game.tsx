@@ -1,6 +1,7 @@
 import {useFetch} from "@mantine/hooks"
 
 interface Game {
+    id: number
     title: string
     year: number
     genre: Genre[]
@@ -30,6 +31,7 @@ export default function Game() {
         }).join(", ")
         
         return <div
+            key={game.id}
         >
             <p>{game.title}</p>
             <p>{game.year}</p>
