@@ -16,7 +16,31 @@ type Developer = {
 }
 
 export default function Game() {
+    const {data, loading, error, refetch, abort} = useFetch<Game[]>(
+        "http://localhost:3000/games"
+    )
+
+    const gamesEl = data && data.map((game) => {
+        const genres = game.genre.map(genre => {
+            genre.name
+        }).join("")
+
+        const developers = game.developer.map(developer => {
+            developer.name
+        }).join("")
+        
+        return <div
+        >
+            <p>{game.title}</p>
+            <p>{game.year}</p>
+            <p>{genres}</p>
+            <p>{developers}</p>
+        </div>
+    })
+
     return (
-        <h1>Game component goes here!</h1>
+        <>
+            {gamesEl ? gamesEl : <h1>Game component goes here!</h1>}
+        </>
     )
 }
