@@ -1,7 +1,18 @@
 .container {
     display: flex;
-    flex-direction: column;
+    gap: 1.5em;
     padding-top: 1em;
     border-bottom: 1px solid lightgrey;
     padding-inline: 1em;
+}
+
+.container img {
+    width: 150px;
+    height: auto;
+    aspect-ratio: 1;
+    margin-bottom: 1em;
+}
+
+.gameText p {
+    
 }
