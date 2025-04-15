@@ -18,6 +18,7 @@ model Game {
   id        Int         @id @default(autoincrement())
   title     String      @db.VarChar(255)
   year      Int
+  image     String?
   genre     Genre[]
   developer Developer[]
 }

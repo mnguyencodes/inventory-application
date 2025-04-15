@@ -4,6 +4,7 @@ interface Game {
     id: number
     title: string
     year: number
+    image: string
     genre: Genre[]
     developer: Developer[]
 }
@@ -30,13 +31,18 @@ export default function Game() {
             return developer.name
         }).join(", ")
         
+        const image = game.image || "/no-image.png"
+
         return <div
             key={game.id}
         >
-            <p>{game.title}</p>
-            <p>{game.year}</p>
-            <p>{genres}</p>
-            <p>{developers}</p>
+            <img src={image} />
+            <div>
+                <p>{game.title}</p>
+                <p>{game.year}</p>
+                <p>{genres}</p>
+                <p>{developers}</p>
+            </div>
         </div>
     })
 

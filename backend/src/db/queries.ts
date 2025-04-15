@@ -12,6 +12,7 @@ export type Developer = {
 const gamesPost = (async(
     title: string, 
     year: number, 
+    image: string,
     genre: Genre[], 
     developer: Developer[]) => 
 {
@@ -19,6 +20,7 @@ const gamesPost = (async(
         data: {
             title: title,
             year: year,
+            image: image,
             genre: {
                 create: [
                     ...genre
