@@ -1,4 +1,5 @@
 import {useFetch} from "@mantine/hooks"
+import styles from "./_styles/Game.module.css"
 
 interface Game {
     id: number
@@ -30,7 +31,7 @@ export default function Game() {
             return developer.name
         }).join(", ")
         
-        return <div
+        return <div className={styles.container}
             key={game.id}
         >
             <p>{game.title}</p>
