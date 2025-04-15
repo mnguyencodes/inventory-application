@@ -10,7 +10,6 @@ export default function Navbar() {
     const [active, setActive] = useState(0)
 
     const navbarEl = navbarData.map((navlink, index)=>{
-        console.log("Inside map!")
         return <NavLinkMantine
             component={NavLink}
             to={navlink.href}
