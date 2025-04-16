@@ -7,7 +7,7 @@ import navbarData from "./utils/Navbar-Data"
 
 export default function Navbar() {
 
-    const [active, setActive] = useState(0)
+    const [active, setActive] = useState<number | null>(null)
 
     const navbarEl = navbarData.map((navlink, index)=>{
         return <NavLinkMantine
