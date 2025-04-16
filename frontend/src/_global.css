@@ -22,6 +22,7 @@ body {
     background-color: #eff2f5; /* #2 Must be the same as #1 */
     
     min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,4 +1,5 @@
 import {useFetch} from "@mantine/hooks"
+import styles from "./_styles/Game.module.css"
 
 interface Game {
     id: number
@@ -33,11 +34,11 @@ export default function Game() {
         
         const image = game.image || "/no-image.png"
 
-        return <div
+        return <div className={styles.container}
             key={game.id}
         >
             <img src={image} />
-            <div>
+            <div className={styles.gameText}>
                 <p>{game.title}</p>
                 <p>{game.year}</p>
                 <p>{genres}</p>
@@ -48,7 +49,9 @@ export default function Game() {
 
     return (
         <>
-            {gamesEl ? gamesEl : <h1>Game component goes here!</h1>}
+            <section className={styles.gamesContainer}>
+                {gamesEl ? gamesEl : <h1>Game component goes here!</h1>}
+            </section>
         </>
     )
 }
