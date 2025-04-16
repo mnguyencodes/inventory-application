@@ -4,10 +4,18 @@ import {NavLink as NavLinkMantine} from "@mantine/core"
 import {NavLink} from "react-router"
 import {useState} from "react"
 import navbarData from "./utils/Navbar-Data"
+import {AppShellInitContext} from "./AppShellInit"
+import {useContext} from "react"
 
 export default function Navbar() {
 
+    const {toggle} = useContext(AppShellInitContext)
     const [active, setActive] = useState<number | null>(null)
+    
+    function handleClick(index: number, toggle: () => void) {
+        setActive(index)
+        toggle()
+    }
 
     const navbarEl = navbarData.map((navlink, index)=>{
         return <NavLinkMantine
@@ -17,7 +25,7 @@ export default function Navbar() {
             label={navlink.text}
             active={index === active}
             leftSection={<navlink.icon size={16} stroke={1.5}/>}
-            onClick={()=>setActive(index)}
+            onClick={()=>handleClick(index, toggle)}
             variant="filled"
         />
     })
