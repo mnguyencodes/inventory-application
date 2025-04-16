@@ -33,6 +33,10 @@ export default function Navbar() {
 
     return (
         <AppShell.Navbar className={styles.nav} p="md">
+            <div className={styles.account}>
+                <Button>Sign up</Button>
+                <Button>Log in</Button>
+            </div>
             {navbarEl}
         </AppShell.Navbar>
     )
