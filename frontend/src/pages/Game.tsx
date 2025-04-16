@@ -38,7 +38,7 @@ export default function Game() {
             key={game.id}
         >
             <img src={image} />
-            <div>
+            <div className={styles.gameText}>
                 <p>{game.title}</p>
                 <p>{game.year}</p>
                 <p>{genres}</p>
@@ -49,7 +49,9 @@ export default function Game() {
 
     return (
         <>
-            {gamesEl ? gamesEl : <h1>Game component goes here!</h1>}
+            <section className={styles.gamesContainer}>
+                {gamesEl ? gamesEl : <h1>Game component goes here!</h1>}
+            </section>
         </>
     )
 }
