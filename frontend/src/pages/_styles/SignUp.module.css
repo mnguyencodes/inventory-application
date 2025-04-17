@@ -1,0 +1,17 @@
+ul.errors {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.errors > * {
+  text-decoration-style: none;
+}
+
+.form > * {
+  margin-bottom: 1em;
+}
+
+.form p {
+  color: red;
+  font-size: 0.8rem;
+}
