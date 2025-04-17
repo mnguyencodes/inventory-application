@@ -38,9 +38,40 @@ export default function SignUp() {
         reset()
     }
 
-    return (
+return (
         <>
             <h1>SignUp Component!</h1>
+            <form className={styles.form} onSubmit={handleSubmit(form)}>
+                <TextInput
+                    {...register("firstName", { required: true })}
+                    label="First Name"
+                    placeholder="James"
+                />
+                {errors.firstName?.message && <p>{errors.firstName?.message}</p>}
+
+                <TextInput
+                    {...register("lastName", { required: true })}
+                    label="Last Name"
+                    placeholder="Bond"
+                />
+                {errors.lastName?.message && <p>{errors.lastName?.message}</p>}
+
+                <TextInput
+                    {...register("email", { required: true })}
+                    label="Email"
+                    placeholder="jb007@m16.com"
+                />
+                {errors.email?.message && <p>{errors.email?.message}</p>}
+
+                <PasswordInput 
+                    {...register("password", { required: true })}
+                    label="Password"
+                    placeholder="********"
+                />
+                {errors.password?.message && <p>{errors.password?.message}</p>}
+
+                <Button type="submit" variant="filled">Submit</Button>
+            </form>
         </>
     )
 }
