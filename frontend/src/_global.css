@@ -1,35 +1,35 @@
 :root {
-    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-}
-  
-#root {
-    margin: 0;
-    padding: 0;
-    background-color: #eff2f5; /* #1 Must be the same as #2 */
-}
-  
-h1,
-p {
-    margin: 0 0 1em 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 }
 
-html, 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #eff2f5; /* #2 Must be the same as #1 */
-    
-    min-height: 100vh;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#root {
+  margin: 0;
+  padding: 0;
+  background-color: #eff2f5; /* #1 Must be the same as #2 */
 }
-  
+
+h1,
+p {
+  margin: 0 0 1em 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eff2f5; /* #2 Must be the same as #1 */
+
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 main {
-    display: flex;
-    flex-direction: column;
-    max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
 }
