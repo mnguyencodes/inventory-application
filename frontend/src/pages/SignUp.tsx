@@ -20,6 +20,24 @@ const schema = z.object({
 })
 
 export default function SignUp() {
+
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors }
+    } = useForm({
+        resolver: zodResolver(schema)
+    })
+
+    const form = async(data: unknown) => {
+        await fetch("http://localhost:3000/authentication/sign-up", {
+            method: "POST",
+            body: JSON.stringify(data)
+        })
+        reset()
+    }
+
     return (
         <>
             <h1>SignUp Component!</h1>
