@@ -1,11 +1,12 @@
-import {AppShell} from "@mantine/core";
-import styles from "./_styles/Navbar.module.css"
-import {NavLink as NavLinkMantine} from "@mantine/core"
-import {NavLink} from "react-router"
-import {useState} from "react"
 import navbarData from "./utils/Navbar-Data"
 import {AppShellInitContext} from "./AppShellInit"
+import {AppShell} from "@mantine/core";
+import {NavLink as NavLinkMantine} from "@mantine/core"
+import {Button} from "@mantine/core"
+import {NavLink} from "react-router"
 import {useContext} from "react"
+import {useState} from "react"
+import styles from "./_styles/Navbar.module.css"
 
 export default function Navbar() {
 
@@ -32,6 +33,10 @@ export default function Navbar() {
 
     return (
         <AppShell.Navbar className={styles.nav} p="md">
+            <div className={styles.account}>
+                <Button variant="filled" component={NavLink} to="/authentication/sign-up">Sign up</Button>
+                <Button variant="light" component={NavLink} to="/authentication/log-in">Log in</Button>
+            </div>
             {navbarEl}
         </AppShell.Navbar>
     )
