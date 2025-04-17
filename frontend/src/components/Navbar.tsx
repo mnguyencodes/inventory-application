@@ -34,8 +34,8 @@ export default function Navbar() {
     return (
         <AppShell.Navbar className={styles.nav} p="md">
             <div className={styles.account}>
-                <Button>Sign up</Button>
-                <Button>Log in</Button>
+                <Button variant="filled" component={NavLink} to="/authentication/sign-up">Sign up</Button>
+                <Button variant="light" component={NavLink} to="/authentication/log-in">Log in</Button>
             </div>
             {navbarEl}
         </AppShell.Navbar>
