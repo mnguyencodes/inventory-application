@@ -1,0 +1,23 @@
+{
+  "name": "inventory-application",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnguyencodes/inventory-application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnguyencodes/inventory-application/issues"
+  },
+  "homepage": "https://github.com/mnguyencodes/inventory-application#readme",
+  "devDependencies": {
+    "eslint-config-prettier": "^10.1.2",
+    "prettier": "3.5.3"
+  }
+}
