@@ -1,6 +1,7 @@
 # Development Notes
 
 ## Mantine Breakpoints
+
 - **xs**: `30em`
 - **sm**: `48em`
 - **md**: `64em`

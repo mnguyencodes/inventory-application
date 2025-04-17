@@ -10,31 +10,30 @@
 // import "./Header.module.css"
 
 import {
-    Burger,
-    AppShell,
-    // Group
-} from "@mantine/core"
+  Burger,
+  AppShell,
+  // Group
+} from '@mantine/core'
 
-import {useContext} from "react"
-import {AppShellInitContext} from "./AppShellInit"
-import styles from "./_styles/Header.module.css"
+import { useContext } from 'react'
+import { AppShellInitContext } from './AppShellInit'
+import styles from './_styles/Header.module.css'
 
 export default function Header() {
+  const { opened, toggle } = useContext(AppShellInitContext)
 
-    const {opened, toggle} = useContext(AppShellInitContext)
-
-    return (
-        <>
-            <AppShell.Header className={styles.header}>
-                <Burger
-                    opened={opened}
-                    onClick={toggle}
-                    hiddenFrom="sm"
-                    size="sm"
-                    className={styles.burger}
-                />
-                <div className={styles.logo}>Logo</div>
-            </AppShell.Header>
-        </>
-    )
+  return (
+    <>
+      <AppShell.Header className={styles.header}>
+        <Burger
+          opened={opened}
+          onClick={toggle}
+          hiddenFrom="sm"
+          size="sm"
+          className={styles.burger}
+        />
+        <div className={styles.logo}>Logo</div>
+      </AppShell.Header>
+    </>
+  )
 }

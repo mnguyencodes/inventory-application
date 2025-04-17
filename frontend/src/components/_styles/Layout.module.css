@@ -1,18 +1,20 @@
 .main {
-    min-height: calc(100vh - (var(--app-shell-header-height) + var(--app-shell-footer-height)));
-    margin-top: var(--app-shell-header-offset);
-    margin-bottom: var(--app-shell-footer-offset);
+  min-height: calc(
+    100vh - (var(--app-shell-header-height) + var(--app-shell-footer-height))
+  );
+  margin-top: var(--app-shell-header-offset);
+  margin-bottom: var(--app-shell-footer-offset);
 }
 
 @media (min-width: $mantine-breakpoint-sm) {
-    .main {
-        margin-left: var(--app-shell-navbar-width);
-        padding: 2em;
-    }
+  .main {
+    margin-left: var(--app-shell-navbar-width);
+    padding: 2em;
+  }
 }
 
 @media (min-width: $mantine-breakpoint-lg) {
-    .main {
-        padding: 3em;
-    }
+  .main {
+    padding: 3em;
+  }
 }
