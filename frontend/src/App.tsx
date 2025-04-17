@@ -1,15 +1,14 @@
-import "@mantine/core/styles.css"
-import { MantineProvider } from "@mantine/core"
+import '@mantine/core/styles.css'
+import { MantineProvider } from '@mantine/core'
 import './_global.css'
-import {BrowserRouter, Routes, Route} from "react-router"
-import Layout from "./components/Layout"
-import Home from "./pages/Home"
-import Game from "./pages/Game"
-import SignUp from "./pages/SignUp"
-import LogIn from "./pages/LogIn"
+import { BrowserRouter, Routes, Route } from 'react-router'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import Game from './pages/Game'
+import SignUp from './pages/SignUp'
+import LogIn from './pages/LogIn'
 
 function App() {
-
   return (
     <>
       <MantineProvider>

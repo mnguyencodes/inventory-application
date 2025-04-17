@@ -1,22 +1,21 @@
-import {useState} from "react"
-import {useEffectOnUpdate} from "./useEffectOnUpdate"
+import { useState } from 'react'
+import { useEffectOnUpdate } from './useEffectOnUpdate'
 
 type toggleParams = {
-    initialValue: boolean
-    onToggle: () => void
+  initialValue: boolean
+  onToggle: () => void
 }
 
 export default function useToggle({
-    initialValue = false,
-    onToggle = () => {}
-}: toggleParams)
-{
-    const [on, setOn] = useState(initialValue)
+  initialValue = false,
+  onToggle = () => {},
+}: toggleParams) {
+  const [on, setOn] = useState(initialValue)
 
-    useEffectOnUpdate(onToggle, [on])
+  useEffectOnUpdate(onToggle, [on])
 
-    function toggle() {
-        setOn(prevOn=>!prevOn)
-    }
-    return [on, toggle]
+  function toggle() {
+    setOn((prevOn) => !prevOn)
+  }
+  return [on, toggle]
 }
