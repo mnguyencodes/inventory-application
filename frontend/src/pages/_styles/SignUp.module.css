@@ -15,3 +15,15 @@ ul.errors > * {
   color: red;
   font-size: 0.8rem;
 }
+
+.form li {
+  font-size: 0.8rem;
+}
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
