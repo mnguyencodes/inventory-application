@@ -12,6 +12,11 @@ interface FormInputs {
   password: string
 }
 
+const digits = /\d/
+const lower = /[a-z]/
+const upper = /[A-Z]/
+const symbols = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/
+
 const schema = z.object({
   firstName: z
     .string()
