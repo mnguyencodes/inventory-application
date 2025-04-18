@@ -4,6 +4,13 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import styles from './_styles/SignUp.module.css'
 
+interface FormInputs {
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+}
+
 const schema = z.object({
   firstName: z
     .string()
@@ -26,11 +33,11 @@ export default function SignUp() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormInputs>({
     resolver: zodResolver(schema),
   })
 
-  const form = async (data: unknown) => {
+  const form = async (data: FormInputs) => {
     await fetch('http://localhost:3000/authentication/sign-up', {
       method: 'POST',
       body: JSON.stringify(data),
