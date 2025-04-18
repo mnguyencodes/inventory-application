@@ -2,6 +2,7 @@ import { Button, TextInput, PasswordInput } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import { useState } from 'react'
 import styles from './_styles/SignUp.module.css'
 
 interface FormInputs {
@@ -50,6 +51,12 @@ mode: 'onChange',
     reset()
   }
 
+  const [focusPassword, setfocusPassword] = useState(false)
+
+  function handleFocus() {
+    setfocusPassword(true)
+  }
+
   return (
     <>
       <h1>SignUp Component!</h1>
@@ -79,9 +86,20 @@ mode: 'onChange',
           {...register('password', { required: true })}
           label="Password"
           placeholder="********"
+          onFocus={handleFocus}
         />
-        {errors.password?.message && <p>{errors.password?.message}</p>}
-
+        {focusPassword && (
+          <div>
+            <p>Your password must:</p>
+            <ul>
+              <li>be between 8 and 32 characters.</li>
+              <li>contain a number.</li>
+              <li>contain a symbol.</li>
+              <li>contain an uppercase letter.</li>
+              <li>contain a lowercase letter.</li>
+            </ul>
+          </div>
+        )}
         <Button type="submit" variant="filled">
           Submit
         </Button>
