@@ -47,6 +47,16 @@ mode: 'onChange',
   const [password] = watch(["password"])
   console.log(password)
 
+  function checkRegex(validator: RegExp) {
+    return validator.test(password) ? styles.valid : styles.invalid
+  }
+
+  function checkLength(min: number, max: number) {
+    if (password.length >= min && password.length <= max) {
+      return styles.valid
+    }
+    return styles.invalid
+  }
 
   const form = async (data: FormInputs) => {
     await fetch('http://localhost:3000/authentication/sign-up', {
