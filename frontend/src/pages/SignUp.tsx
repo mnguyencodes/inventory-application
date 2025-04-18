@@ -32,11 +32,15 @@ export default function SignUp() {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors },
   } = useForm<FormInputs>({
 mode: 'onChange',
     resolver: zodResolver(schema),
   })
+  const [password] = watch(["password"])
+  console.log(password)
+
 
   const form = async (data: FormInputs) => {
     await fetch('http://localhost:3000/authentication/sign-up', {
