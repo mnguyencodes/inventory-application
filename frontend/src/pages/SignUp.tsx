@@ -34,6 +34,7 @@ export default function SignUp() {
     reset,
     formState: { errors },
   } = useForm<FormInputs>({
+mode: 'onChange',
     resolver: zodResolver(schema),
   })
 
