@@ -107,11 +107,11 @@ mode: 'onChange',
           <div>
             <p>Your password must:</p>
             <ul>
-              <li>be between 8 and 32 characters.</li>
-              <li>contain a number.</li>
-              <li>contain a symbol.</li>
-              <li>contain an uppercase letter.</li>
-              <li>contain a lowercase letter.</li>
+              <li className={checkLength(8, 32)}>be between 8 and 32 characters.</li>
+              <li className={checkRegex(digits)}>contain a number.</li>
+              <li className={checkRegex(symbols)}>contain a symbol.</li>
+              <li className={checkRegex(upper)}>contain an uppercase letter.</li>
+              <li className={checkRegex(lower)}>contain a lowercase letter.</li>
             </ul>
           </div>
         )}
