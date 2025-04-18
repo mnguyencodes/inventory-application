@@ -1,5 +1,5 @@
 import { Button, TextInput, PasswordInput } from '@mantine/core'
-import { useForm } from 'react-hook-form'
+import { useForm, useWatch, Control } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { useState } from 'react'
@@ -33,19 +33,35 @@ const schema = z.object({
     .max(32, 'Must be at most 32 characters'),
 })
 
+function PasswordWatched({ control }: { control: Control<FormInputs> }) {
+  const password = useWatch({
+    control,
+    name: "password",
+    defaultValue: "default",
+  })
+
+  return password
+}
+
 export default function SignUp() {
   const {
     register,
     handleSubmit,
     reset,
     watch,
-    formState: { errors },
+    control,
+    formState: { errors, touchedFields },
   } = useForm<FormInputs>({
-mode: 'onChange',
+    mode: 'onChange',
     resolver: zodResolver(schema),
   })
+
   const [password] = watch(["password"])
   console.log(password)
+
+  function check2(text: string, validator: RegExp) {
+    return validator.test(text)
+  }
 
   function checkRegex(validator: RegExp) {
     return validator.test(password) ? styles.valid : styles.invalid
@@ -115,6 +131,7 @@ mode: 'onChange',
             </ul>
           </div>
         )}
+        <h2><PasswordWatched control={control}/></h2>
         <Button type="submit" variant="filled">
           Submit
         </Button>
