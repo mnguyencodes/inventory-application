@@ -71,23 +71,23 @@ export default function SignUp() {
   const [password] = watch(['password'])
   console.log(password)
 
-  function check2(text: string, validator: RegExp) {
-    return validator.test(text)
+  function checkLength(min: number, max: number) {
+    return password.length >= min && password.length <= max
   }
 
-  function checkRegex(validator: RegExp) {
-    return validator.test(password) ? styles.valid : styles.invalid
+  function checkRegex(regex: RegExp) {
+    return regex.test(password)
   }
 
-  function renderIcon(validator: RegExp, text: string) {
-    if (dirtyFields.password && validator.test(password)) {
+  function renderIcon(condition: boolean, text: string) {
+    if (dirtyFields.password && condition) {
       return (
         <div className={styles.instructionContainer}>
           <IconCheck className={clsx(styles.icon, styles.valid)} />
           <p className={styles.valid}>{text}</p>
         </div>
       )
-    } else if (dirtyFields.password && !validator.test(password)) {
+    } else if (dirtyFields.password && !condition) {
       return (
         <div className={styles.instructionContainer}>
           <IconX className={clsx(styles.icon, styles.invalid)} />
@@ -101,18 +101,7 @@ export default function SignUp() {
           <p>{text}</p>
         </div>
       )
-    } else if (dirtyFields.password && !validator.test(password)) {
-      return <IconX className={styles.icon} />
-    } else {
-      return <IconPointFilled className={styles.icon} />
     }
-  }
-
-  function checkLength(min: number, max: number) {
-    if (password.length >= min && password.length <= max) {
-      return styles.valid
-    }
-    return styles.invalid
   }
 
   const form = async (data: FormInputs) => {
@@ -138,27 +127,21 @@ export default function SignUp() {
           label="First Name"
           placeholder="James"
         />
-        {errors.firstName?.message && (
-          <p className={styles.invalid}>{errors.firstName?.message}</p>
-        )}
+        {errors.firstName?.message && <p className={styles.invalid}>{errors.firstName?.message}</p>}
 
         <TextInput
           {...register('lastName', { required: true })}
           label="Last Name"
           placeholder="Bond"
         />
-        {errors.lastName?.message && (
-          <p className={styles.invalid}>{errors.lastName?.message}</p>
-        )}
+        {errors.lastName?.message && <p className={styles.invalid}>{errors.lastName?.message}</p>}
 
         <TextInput
           {...register('email', { required: true })}
           label="Email"
           placeholder="jb007@m16.com"
         />
-        {errors.email?.message && (
-          <p className={styles.invalid}>{errors.email?.message}</p>
-        )}
+        {errors.email?.message && <p className={styles.invalid}>{errors.email?.message}</p>}
 
         <PasswordInput
           {...register('password', { required: true })}
