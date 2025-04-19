@@ -22,6 +22,7 @@ ul.errors > * {
 
 .form li {
   font-size: 0.8rem;
+  list-style: none;
 }
 
 .valid {
