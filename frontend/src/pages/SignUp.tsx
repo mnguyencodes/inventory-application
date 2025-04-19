@@ -54,10 +54,16 @@ export default function SignUp() {
     reset,
     watch,
     control,
-    formState: { errors, isValid, touchedFields },
+    formState: { errors, isValid, dirtyFields, touchedFields },
   } = useForm<FormInputs>({
     mode: 'onChange',
     resolver: zodResolver(schema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+    },
   })
 
   const [password] = watch(["password"])
