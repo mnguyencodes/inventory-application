@@ -34,14 +34,14 @@ const schema = z.object({
     .refine((password) => digits.test(password))
     .refine((password) => lower.test(password))
     .refine((password) => upper.test(password))
-    .refine((password => symbols.test(password)))
+    .refine((password) => symbols.test(password)),
 })
 
 function PasswordWatched({ control }: { control: Control<FormInputs> }) {
   const password = useWatch({
     control,
-    name: "password",
-    defaultValue: "default",
+    name: 'password',
+    defaultValue: 'default',
   })
 
   return password
@@ -59,14 +59,14 @@ export default function SignUp() {
     mode: 'onChange',
     resolver: zodResolver(schema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
     },
   })
 
-  const [password] = watch(["password"])
+  const [password] = watch(['password'])
   console.log(password)
 
   function check2(text: string, validator: RegExp) {
@@ -147,7 +147,10 @@ export default function SignUp() {
             </ul>
           </div>
         )}
-        <h2><PasswordWatched control={control}/></h2>
+
+        <h2>
+          <PasswordWatched control={control} />
+        </h2>
         <Button type="submit" variant="filled" disabled={!isValid}>
           Submit
         </Button>
