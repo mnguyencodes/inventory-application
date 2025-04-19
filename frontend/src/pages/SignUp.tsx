@@ -81,7 +81,26 @@ export default function SignUp() {
 
   function renderIcon(validator: RegExp, text: string) {
     if (dirtyFields.password && validator.test(password)) {
-      return <IconCheck className={styles.icon} />
+      return (
+        <div className={styles.instructionContainer}>
+          <IconCheck className={clsx(styles.icon, styles.valid)} />
+          <p className={styles.valid}>{text}</p>
+        </div>
+      )
+    } else if (dirtyFields.password && !validator.test(password)) {
+      return (
+        <div className={styles.instructionContainer}>
+          <IconX className={clsx(styles.icon, styles.invalid)} />
+          <p className={styles.invalid}>{text}</p>
+        </div>
+      )
+    } else {
+      return (
+        <div className={styles.instructionContainer}>
+          <IconPointFilled className={styles.icon} />
+          <p>{text}</p>
+        </div>
+      )
     } else if (dirtyFields.password && !validator.test(password)) {
       return <IconX className={styles.icon} />
     } else {
