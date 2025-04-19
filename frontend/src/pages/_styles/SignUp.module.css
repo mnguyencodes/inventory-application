@@ -15,8 +15,8 @@ ul.errors > * {
   padding: 0;
 }
 
-.form .p {
-  color: black;
+.p {
+  color: red;
   font-size: 0.8rem;
 }
 
@@ -31,4 +31,19 @@ ul.errors > * {
 
 .invalid {
   color: red;
+}
+
+.instructionContainer {
+  display: grid;
+  grid-template-columns: 3ch 1fr;
+}
+
+.icon {
+  align-self: center;
+  height: 0.8rem;
+  width: 0.8rem;
+}
+
+.instructionContainer > p {
+  margin: 0;
 }
