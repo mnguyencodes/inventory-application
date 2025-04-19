@@ -54,7 +54,7 @@ export default function SignUp() {
     reset,
     watch,
     control,
-    formState: { errors, touchedFields },
+    formState: { errors, isValid, touchedFields },
   } = useForm<FormInputs>({
     mode: 'onChange',
     resolver: zodResolver(schema),
@@ -136,7 +136,7 @@ export default function SignUp() {
           </div>
         )}
         <h2><PasswordWatched control={control}/></h2>
-        <Button type="submit" variant="filled">
+        <Button type="submit" variant="filled" disabled={!isValid}>
           Submit
         </Button>
       </form>
