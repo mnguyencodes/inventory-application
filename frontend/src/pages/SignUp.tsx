@@ -29,8 +29,8 @@ const schema = z.object({
   email: z.string().email('Invalid email').min(2),
   password: z
     .string()
-    .min(8, 'Must be at least 8 characters')
-    .max(32, 'Must be at most 32 characters'),
+    .min(8)
+    .max(32),
 })
 
 function PasswordWatched({ control }: { control: Control<FormInputs> }) {
