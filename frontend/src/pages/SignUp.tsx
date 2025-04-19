@@ -79,6 +79,16 @@ export default function SignUp() {
     return validator.test(password) ? styles.valid : styles.invalid
   }
 
+  function renderIcon(validator: RegExp) {
+    if (dirtyFields.password && validator.test(password)) {
+      return <IconCheck className={styles.icon} />
+    } else if (dirtyFields.password && !validator.test(password)) {
+      return <IconX className={styles.icon} />
+    } else {
+      return <IconPointFilled className={styles.icon} />
+    }
+  }
+
   function checkLength(min: number, max: number) {
     if (password.length >= min && password.length <= max) {
       return styles.valid
