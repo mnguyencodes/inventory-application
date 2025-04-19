@@ -3,6 +3,7 @@ import { useForm, useWatch, Control } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { useState } from 'react'
+import clsx from 'clsx'
 import styles from './_styles/SignUp.module.css'
 
 interface FormInputs {
@@ -136,14 +137,31 @@ export default function SignUp() {
           onFocus={handleFocus}
         />
         {focusPassword && (
-          <div>
-            <p>Your password must:</p>
+          <div className={styles.passwordInstructions}>
+            <p
+              className={clsx(
+                (dirtyFields.password && errors.password && styles.invalid) ||
+                  (dirtyFields.password && !errors.password && styles.valid)
+              )}
+            >
+              Your password must:
+            </p>
             <ul>
-              <li className={checkLength(8, 32)}>be between 8 and 32 characters.</li>
-              <li className={checkRegex(digits)}>contain a number.</li>
-              <li className={checkRegex(symbols)}>contain a symbol.</li>
-              <li className={checkRegex(upper)}>contain an uppercase letter.</li>
-              <li className={checkRegex(lower)}>contain a lowercase letter.</li>
+              <li className={clsx(dirtyFields.password && checkLength(8, 32))}>
+                be between 8 and 32 characters.
+              </li>
+              <li className={clsx(dirtyFields.password && checkRegex(digits))}>
+                contain a number.
+              </li>
+              <li className={clsx(dirtyFields.password && checkRegex(symbols))}>
+                contain a symbol.
+              </li>
+              <li className={clsx(dirtyFields.password && checkRegex(upper))}>
+                contain an uppercase letter.
+              </li>
+              <li className={clsx(dirtyFields.password && checkRegex(lower))}>
+                contain a lowercase letter.
+              </li>
             </ul>
           </div>
         )}
