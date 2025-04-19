@@ -160,13 +160,11 @@ export default function SignUp() {
               Your password must:
             </p>
             <ul>
-              <li className={clsx(dirtyFields.password && checkLength(8, 32))}>
-                be between 8 and 32 characters.
-              </li>
-              <li>{renderIcon(digits, 'contain a number.')}</li>
-              <li>{renderIcon(symbols, 'contain a symbol.')}</li>
-              <li>{renderIcon(upper, 'contain an an uppercase letter.')}</li>
-              <li>{renderIcon(lower, 'contain a lowercase letter.')}</li>
+              <li>{renderIcon(checkLength(8, 32), 'be between 8 and 32 characters.')}</li>
+              <li>{renderIcon(checkRegex(digits), 'contain a number.')}</li>
+              <li>{renderIcon(checkRegex(symbols), 'contain a symbol.')}</li>
+              <li>{renderIcon(checkRegex(upper), 'contain an an uppercase letter.')}</li>
+              <li>{renderIcon(checkRegex(lower), 'contain a lowercase letter.')}</li>
             </ul>
           </div>
         )}
