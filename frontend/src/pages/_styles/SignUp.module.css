@@ -11,7 +11,8 @@ ul.errors > * {
   margin-bottom: 1em;
 }
 
-.form p {
+.form .p {
+  color: black;
   font-size: 0.8rem;
 }
 
