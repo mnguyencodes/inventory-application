@@ -79,7 +79,7 @@ export default function SignUp() {
     return validator.test(password) ? styles.valid : styles.invalid
   }
 
-  function renderIcon(validator: RegExp) {
+  function renderIcon(validator: RegExp, text: string) {
     if (dirtyFields.password && validator.test(password)) {
       return <IconCheck className={styles.icon} />
     } else if (dirtyFields.password && !validator.test(password)) {
