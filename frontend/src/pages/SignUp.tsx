@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { useState } from 'react'
 import clsx from 'clsx'
+import { IconPointFilled, IconCheck, IconX } from '@tabler/icons-react'
 import styles from './_styles/SignUp.module.css'
 
 interface FormInputs {
