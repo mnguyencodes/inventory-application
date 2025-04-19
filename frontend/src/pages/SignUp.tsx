@@ -161,17 +161,29 @@ export default function SignUp() {
               <li className={clsx(dirtyFields.password && checkLength(8, 32))}>
                 be between 8 and 32 characters.
               </li>
-              <li className={clsx(dirtyFields.password && checkRegex(digits))}>
-                contain a number.
+              <li>
+                <div className={styles.instructionContainer}>
+                  {renderIcon(digits)}
+                  <p>contain a number.</p>
+                </div>
               </li>
-              <li className={clsx(dirtyFields.password && checkRegex(symbols))}>
-                contain a symbol.
+              <li>
+                <div className={styles.instructionContainer}>
+                  {renderIcon(symbols)}
+                  <p>contain a symbol.</p>
+                </div>
               </li>
-              <li className={clsx(dirtyFields.password && checkRegex(upper))}>
-                contain an uppercase letter.
+              <li>
+                <div className={styles.instructionContainer}>
+                  {renderIcon(upper)}
+                  <p>contain an uppercase letter.</p>
+                </div>
               </li>
-              <li className={clsx(dirtyFields.password && checkRegex(lower))}>
-                contain a lowercase letter.
+              <li>
+                <div className={styles.instructionContainer}>
+                  {renderIcon(lower)}
+                  <p>contain a lowercase letter.</p>
+                </div>
               </li>
             </ul>
           </div>
