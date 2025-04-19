@@ -30,7 +30,11 @@ const schema = z.object({
   password: z
     .string()
     .min(8)
-    .max(32),
+    .max(32)
+    .refine((password) => digits.test(password))
+    .refine((password) => lower.test(password))
+    .refine((password) => upper.test(password))
+    .refine((password => symbols.test(password)))
 })
 
 function PasswordWatched({ control }: { control: Control<FormInputs> }) {
