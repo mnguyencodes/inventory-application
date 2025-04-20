@@ -180,7 +180,14 @@ export default function SignUp() {
             </ul>
           </div>
         )}
-
+        <PasswordInput
+          {...register('confirmPassword', { required: true })}
+          label="Confirm Password"
+          placeholder="********"
+        />
+        {errors.confirmPassword?.message && (
+          <p className={styles.invalid}>{errors.confirmPassword.message}</p>
+        )}
         <h2>
           <PasswordWatched control={control} />
         </h2>
