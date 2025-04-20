@@ -1,0 +1,43 @@
+.title {
+  text-align: center;
+}
+
+/* Form Layout */
+
+.form {
+  min-width: rem(300);
+}
+
+.form > * {
+  margin-bottom: 1em;
+}
+
+.form ul {
+  padding: 0;
+}
+
+.form li {
+  font-size: 0.8rem;
+  list-style: none;
+}
+
+/* Form Layout - Errors */
+
+ul.errors {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.errors > * {
+  text-decoration-style: none;
+}
+
+/* Utility */
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
+}
