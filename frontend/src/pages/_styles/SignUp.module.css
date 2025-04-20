@@ -2,14 +2,7 @@
   text-align: center;
 }
 
-ul.errors {
-  list-style-type: none;
-  padding: 0;
-}
-
-ul.errors > * {
-  text-decoration-style: none;
-}
+/* Form Layout */
 
 .form {
   min-width: rem(300);
@@ -23,23 +16,23 @@ ul.errors > * {
   padding: 0;
 }
 
-.p {
-  color: red;
-  font-size: 0.8rem;
-}
-
 .form li {
   font-size: 0.8rem;
   list-style: none;
 }
 
-.valid {
-  color: green;
+/* Form Layout - Errors */
+
+ul.errors {
+  list-style-type: none;
+  padding: 0;
 }
 
-.invalid {
-  color: red;
+ul.errors > * {
+  text-decoration-style: none;
 }
+
+/* Password Instructions */
 
 .instructionContainer {
   display: grid;
@@ -54,4 +47,14 @@ ul.errors > * {
 
 .instructionContainer > p {
   margin: 0;
+}
+
+/* Utility */
+
+.valid {
+  color: green;
+}
+
+.invalid {
+  color: red;
 }
