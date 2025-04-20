@@ -7,6 +7,10 @@ ul.errors > * {
   text-decoration-style: none;
 }
 
+.form {
+  min-width: rem(300);
+}
+
 .form > * {
   margin-bottom: 1em;
 }
