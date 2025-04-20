@@ -23,23 +23,23 @@ const symbols = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/
 
 const schema = z
   .object({
-  firstName: z
-    .string()
-    .min(2, 'Must be at least 2 characters')
-    .refine((name) => /^[a-zA-Z]+$/.test(name), 'Must contain letters only'),
-  lastName: z
-    .string()
-    .min(2, 'Must be at least 2 characters')
-    .refine((name) => /^[a-zA-Z]+$/.test(name), 'Must contain letters only'),
-  email: z.string().email('Invalid email').min(2),
-  password: z
-    .string()
-    .min(8)
-    .max(32)
-    .refine((password) => digits.test(password))
-    .refine((password) => lower.test(password))
-    .refine((password) => upper.test(password))
-    .refine((password) => symbols.test(password)),
+    firstName: z
+      .string()
+      .min(2, 'Must be at least 2 characters')
+      .refine((name) => /^[a-zA-Z]+$/.test(name), 'Must contain letters only'),
+    lastName: z
+      .string()
+      .min(2, 'Must be at least 2 characters')
+      .refine((name) => /^[a-zA-Z]+$/.test(name), 'Must contain letters only'),
+    email: z.string().email('Invalid email').min(2),
+    password: z
+      .string()
+      .min(8)
+      .max(32)
+      .refine((password) => digits.test(password))
+      .refine((password) => lower.test(password))
+      .refine((password) => upper.test(password))
+      .refine((password) => symbols.test(password)),
     confirmPassword: z.string(),
   })
   .superRefine((val, ctx) => {
@@ -50,7 +50,7 @@ const schema = z
         path: ['confirmPassword'],
       })
     }
-})
+  })
 
 function PasswordWatched({ control }: { control: Control<FormInputs> }) {
   const password = useWatch({
@@ -68,8 +68,7 @@ export default function SignUp() {
     handleSubmit,
     reset,
     watch,
-    control,
-    formState: { errors, isValid, dirtyFields, touchedFields },
+    formState: { errors, isValid, dirtyFields },
   } = useForm<FormInputs>({
     mode: 'onChange',
     resolver: zodResolver(schema),
@@ -82,7 +81,6 @@ export default function SignUp() {
   })
 
   const [password] = watch(['password'])
-  console.log(password)
 
   function checkLength(min: number, max: number) {
     return password.length >= min && password.length <= max
@@ -190,9 +188,6 @@ export default function SignUp() {
         {errors.confirmPassword?.message && (
           <p className={styles.invalid}>{errors.confirmPassword.message}</p>
         )}
-        <h2>
-          <PasswordWatched control={control} />
-        </h2>
         <Button type="submit" variant="filled" disabled={!isValid}>
           Submit
         </Button>
