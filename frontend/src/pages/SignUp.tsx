@@ -139,22 +139,19 @@ export default function SignUp() {
           label="First Name"
           placeholder="James"
         />
-        {errors.firstName?.message && <p className={styles.invalid}>{errors.firstName?.message}</p>}
-
+        {errors.firstName?.message && <p className={styles.invalid}>{errors.firstName.message}</p>}
         <TextInput
           {...register('lastName', { required: true })}
           label="Last Name"
           placeholder="Bond"
         />
-        {errors.lastName?.message && <p className={styles.invalid}>{errors.lastName?.message}</p>}
-
+        {errors.lastName?.message && <p className={styles.invalid}>{errors.lastName.message}</p>}
         <TextInput
           {...register('email', { required: true })}
           label="Email"
           placeholder="jb007@m16.com"
         />
-        {errors.email?.message && <p className={styles.invalid}>{errors.email?.message}</p>}
-
+        {errors.email?.message && <p className={styles.invalid}>{errors.email.message}</p>}
         <PasswordInput
           {...register('password', { required: true })}
           label="Password"
