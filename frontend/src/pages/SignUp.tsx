@@ -20,7 +20,8 @@ const lower = /[a-z]/
 const upper = /[A-Z]/
 const symbols = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/
 
-const schema = z.object({
+const schema = z
+  .object({
   firstName: z
     .string()
     .min(2, 'Must be at least 2 characters')
@@ -38,6 +39,16 @@ const schema = z.object({
     .refine((password) => lower.test(password))
     .refine((password) => upper.test(password))
     .refine((password) => symbols.test(password)),
+    confirmPassword: z.string(),
+  })
+  .superRefine((val, ctx) => {
+    if (val.confirmPassword !== val.password) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: 'Passwords do not match',
+        path: ['confirmPassword'],
+      })
+    }
 })
 
 function PasswordWatched({ control }: { control: Control<FormInputs> }) {
