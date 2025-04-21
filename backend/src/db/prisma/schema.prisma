@@ -34,3 +34,11 @@ model Genre {
   name String @db.VarChar(255)
   game Game[]
 }
+
+model User {
+  id        Int    @id @default(autoincrement())
+  firstName String @db.VarChar(255)
+  lastName  String @db.VarChar(255)
+  email     String
+  password  String
+}
