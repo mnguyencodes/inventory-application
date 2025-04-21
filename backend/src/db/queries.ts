@@ -52,8 +52,14 @@ const usersPost = async (firstName: string, lastName: string, email: string, pas
   })
 }
 
+const usersGet = async () => {
+  const allUsers = await pool.user.findMany()
+  return allUsers
+}
+
 export default {
   gamesPost,
   gamesGet,
   usersPost,
+  usersGet,
 }
