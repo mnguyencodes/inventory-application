@@ -41,7 +41,25 @@ const gamesGet = async () => {
   return allGames
 }
 
+const usersPost = async (firstName: string, lastName: string, email: string, password: string) => {
+  await pool.user.create({
+    data: {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+    },
+  })
+}
+
+const usersGet = async () => {
+  const allUsers = await pool.user.findMany()
+  return allUsers
+}
+
 export default {
   gamesPost,
   gamesGet,
+  usersPost,
+  usersGet,
 }
