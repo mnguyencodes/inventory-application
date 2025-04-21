@@ -41,7 +41,19 @@ const gamesGet = async () => {
   return allGames
 }
 
+const usersPost = async (firstName: string, lastName: string, email: string, password: string) => {
+  await pool.user.create({
+    data: {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password,
+    },
+  })
+}
+
 export default {
   gamesPost,
   gamesGet,
+  usersPost,
 }
