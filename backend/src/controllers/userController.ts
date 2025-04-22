@@ -1,4 +1,5 @@
 import queries from '../db/queries'
+import asyncHandler from 'express-async-handler'
 
 const usersPost = async (firstName: string, lastName: string, email: string, password: string) => {
   const newUser = await queries.usersPost(firstName, lastName, email, password)
