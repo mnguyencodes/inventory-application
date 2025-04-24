@@ -1,6 +1,7 @@
 import '@dotenvx/dotenvx/config'
 import express from 'express'
 import { gameRouter } from './src/routes/game'
+import userRouter from './src/routes/user'
 import { corsUtil } from './src/utils/cors'
 import { errorHandler } from './src/errors/errorHandler'
 
@@ -13,6 +14,7 @@ server.get('/', (req, res, next) => {
 })
 
 server.use('/games', gameRouter)
+server.use('/users', userRouter)
 
 server.use(errorHandler)
 
