@@ -12,6 +12,7 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
   })
   if (duplicateEmail) {
     // Throw error
+    throw new DuplicateEmailError('Email already exists. Please use a different email.')
   }
   //   const newUser = await pool.user.create({
   //     data: {
