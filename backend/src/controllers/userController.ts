@@ -1,5 +1,6 @@
 import { Request, Response } from 'express'
 import asyncHandler from 'express-async-handler'
+import DuplicateEmailError from '../errors/duplicateEmailError'
 import pool from '../db/pool'
 
 const usersPost = asyncHandler(async (req: Request, res: Response) => {
