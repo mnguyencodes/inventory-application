@@ -13,24 +13,24 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
   if (duplicateEmail) {
     // Throw error
   }
-  const newUser = await pool.user.create({
-    data: {
-      firstName,
-      lastName,
-      email,
-      password,
-    },
-  })
-
-  //   const newUser = await pool.usersPost(firstName, lastName, email, password)
-
-  // Let's start off by checking if the email exists in the database.
-  // Prisma Docs:
-
-  // By unique identifier
-  // const user = await prisma.user.findUnique({
-  //     where: {
-  //       email: 'elsa@prisma.io',
+  //   const newUser = await pool.user.create({
+  //     data: {
+  //       firstName,
+  //       lastName,
+  //       email,
+  //       password,
   //     },
   //   })
-}
+})
+
+//   const newUser = await pool.usersPost(firstName, lastName, email, password)
+
+// Let's start off by checking if the email exists in the database.
+// Prisma Docs:
+
+// By unique identifier
+// const user = await prisma.user.findUnique({
+//     where: {
+//       email: 'elsa@prisma.io',
+//     },
+//   })
