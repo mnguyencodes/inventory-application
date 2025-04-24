@@ -39,6 +39,12 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
 //     },
 //   })
 
+const usersGet = asyncHandler(async (req: Request, res: Response) => {
+  const allUsers = await pool.user.findMany()
+  res.send(allUsers)
+})
+
 export default {
   usersPost,
+  usersGet,
 }
