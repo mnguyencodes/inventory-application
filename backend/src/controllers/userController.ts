@@ -4,6 +4,7 @@ import pool from '../db/pool'
 
 const usersPost = asyncHandler(async (req: Request, res: Response) => {
   // Need to update database schema to ensure that the @unique constraint is added to email column
+  const { email } = req.body.email
   const duplicateEmail = await pool.user.findUnique({
     where: {
       email: email,
