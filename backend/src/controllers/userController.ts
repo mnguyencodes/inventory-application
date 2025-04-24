@@ -38,3 +38,7 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
 //       email: 'elsa@prisma.io',
 //     },
 //   })
+
+export default {
+  usersPost,
+}
