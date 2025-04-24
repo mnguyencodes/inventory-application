@@ -14,6 +14,9 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
     // Throw error
     throw new DuplicateEmailError('Email already exists. Please use a different email.')
   }
+  // If we reach this point then we can go ahead and create the new user!
+  res.send("The email doesn't already exist!")
+
   //   const newUser = await pool.user.create({
   //     data: {
   //       firstName,
