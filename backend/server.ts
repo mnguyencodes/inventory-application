@@ -6,6 +6,7 @@ import { corsUtil } from './src/utils/cors'
 import { errorHandler } from './src/errors/errorHandler'
 
 const server = express()
+server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
 server.use(corsUtil)
 
