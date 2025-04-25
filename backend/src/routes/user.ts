@@ -5,5 +5,6 @@ import userController from '../controllers/userController'
 const userRouter = Router()
 
 userRouter.get('/', corsUtil, userController.usersGet)
+userRouter.post('/create', corsUtil, userController.usersPost)
 
 export default userRouter
