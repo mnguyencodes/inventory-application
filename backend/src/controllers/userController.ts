@@ -4,7 +4,7 @@ import DuplicateEmailError from '../errors/duplicateEmailError'
 import pool from '../db/pool'
 
 const usersPost = asyncHandler(async (req: Request, res: Response) => {
-  const { email } = req.body
+  const { firstName, lastName, email, password } = req.body
   const duplicateEmail = await pool.user.findUnique({
     where: {
       email: email,
