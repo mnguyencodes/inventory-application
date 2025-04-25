@@ -5,21 +5,19 @@ import pool from '../db/pool'
 
 const usersPost = asyncHandler(async (req: Request, res: Response) => {
   const { email } = req.body
-  console.log(req.body.email)
-  // undefined
-  // It seems that the output is undefined...
-
   const duplicateEmail = await pool.user.findUnique({
     where: {
       email: email,
     },
   })
   if (duplicateEmail) {
-    // Throw error
     throw new DuplicateEmailError('Email already exists. Please use a different email.')
+    // This code block is tested to be working.
+    // CURL output:
+    // {"errors":"Email already exists. Please use a different email."}
   }
-  // If we reach this point then we can go ahead and create the new user!
   res.send("The email doesn't already exist!")
+  // Successfully reach this point if email does not exist.
 
   // Curl command for quick POST testing:
   // curl -X POST -H "Content-Type: application/json" -d '{"firstName": "James", "lastName": "Bond", "email": "jb007@m16.com", "password": "JustAQuickTest7#"}' http://localhost:3000/users/create
