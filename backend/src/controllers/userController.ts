@@ -17,6 +17,11 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
   // If we reach this point then we can go ahead and create the new user!
   res.send("The email doesn't already exist!")
 
+  // Curl command for quick POST testing:
+  // curl -X POST -H 'Content-Type:application/json' -d '{"firstName": "James", "lastName": "Bond", "email": "jb007@m16.com", "password": "JustAQuickTest7#"}' http://localhost:3000/users/create
+
+  // JustAQuickTest7#
+
   //   const newUser = await pool.user.create({
   //     data: {
   //       firstName,
