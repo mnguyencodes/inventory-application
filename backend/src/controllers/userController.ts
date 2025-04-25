@@ -4,7 +4,11 @@ import DuplicateEmailError from '../errors/duplicateEmailError'
 import pool from '../db/pool'
 
 const usersPost = asyncHandler(async (req: Request, res: Response) => {
-  const { email } = req.body.email
+  const { email } = req.body
+  console.log(req.body.email)
+  // undefined
+  // It seems that the output is undefined...
+
   const duplicateEmail = await pool.user.findUnique({
     where: {
       email: email,
@@ -18,7 +22,7 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
   res.send("The email doesn't already exist!")
 
   // Curl command for quick POST testing:
-  // curl -X POST -H 'Content-Type:application/json' -d '{"firstName": "James", "lastName": "Bond", "email": "jb007@m16.com", "password": "JustAQuickTest7#"}' http://localhost:3000/users/create
+  // curl -X POST -H "Content-Type: application/json" -d '{"firstName": "James", "lastName": "Bond", "email": "jb007@m16.com", "password": "JustAQuickTest7#"}' http://localhost:3000/users/create
 
   // JustAQuickTest7#
 
