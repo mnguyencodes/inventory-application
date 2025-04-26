@@ -24,14 +24,14 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
 
   // JustAQuickTest7#
 
-  //   const newUser = await pool.user.create({
-  //     data: {
-  //       firstName,
-  //       lastName,
-  //       email,
-  //       password,
-  //     },
-  //   })
+  await pool.user.create({
+    data: {
+      firstName,
+      lastName,
+      email,
+      password,
+    },
+  })
 })
 
 //   const newUser = await pool.usersPost(firstName, lastName, email, password)
