@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import Game from './pages/Game'
-import Users from './pages/Users'
+import Users from './pages/User'
 import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
 
