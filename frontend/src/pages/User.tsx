@@ -1,4 +1,4 @@
-import { useFetch } from '@mantine/hook'
+import { useFetch } from '@mantine/hooks'
 import { Table } from '@mantine/core'
 
 type User = {
