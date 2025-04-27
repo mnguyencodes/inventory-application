@@ -16,12 +16,11 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
     // CURL output:
     // {"errors":"Email already exists. Please use a different email."}
   }
-
+  res.send("The email doesn't already exist!")
   // Successfully reach this point if email does not exist.
 
   // Curl command for quick POST testing:
   // curl -X POST -H "Content-Type: application/json" -d '{"firstName": "James", "lastName": "Bond", "email": "jb007@m16.com", "password": "JustAQuickTest7#"}' http://localhost:3000/users/create
-  // curl -X POST -H "Content-Type: application/json" -d '{"firstName": "Test", "lastName": "Test", "email": "test@test.com", "password": "Test123$"}' http://localhost:3000/authentication/sign-up
 
   // JustAQuickTest7#
 
@@ -33,7 +32,8 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
       password,
     },
   })
-  res.redirect('/')
+  // res.redirect('/')
+  // After some more research, it's best to redirect the user directly on the React app itself.
 })
 
 //   const newUser = await pool.usersPost(firstName, lastName, email, password)
