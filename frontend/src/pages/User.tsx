@@ -2,6 +2,7 @@ import { useFetch } from '@mantine/hooks'
 import { Table } from '@mantine/core'
 
 type User = {
+  id: number
   firstName: string
   lastName: string
   email: string
