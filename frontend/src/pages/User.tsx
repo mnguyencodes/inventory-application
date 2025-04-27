@@ -1,4 +1,5 @@
 import { useFetch } from '@mantine/hook'
+import { Table } from '@mantine/core'
 
 type User = {
   firstName: string
