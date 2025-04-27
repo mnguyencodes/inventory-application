@@ -116,8 +116,9 @@ export default function SignUp() {
   }
 
   const form = async (data: FormInputs) => {
-    await fetch('http://localhost:3000/authentication/sign-up', {
+    await fetch('http://localhost:3000/users/sign-up', {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
     })
     reset()

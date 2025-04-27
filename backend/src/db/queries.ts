@@ -1,3 +1,6 @@
+// NOTE: This file may be unnecessary after all.
+// The advantages of using an ORM like Prisma provides an intuitive query API that can be used within the controller itself.
+
 import '@dotenvx/dotenvx/config'
 import pool from './pool'
 
