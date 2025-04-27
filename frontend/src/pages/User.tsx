@@ -9,7 +9,8 @@ type User = {
 }
 
 export default function User() {
-  const getUsers = async () => {}
+  const { data, loading, error, refetch, abort } = useFetch<User[]>('http://localhost:3000/users')
+
   return (
     <>
       <h1>Users Component</h1>
