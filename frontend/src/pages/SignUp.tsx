@@ -115,6 +115,9 @@ export default function SignUp() {
     }
   }
 
+  // https://tanstack.com/query/latest/docs/framework/react/guides/mutations
+  // To start off, we are going to use the custom hook, useMutation, from @tanstack/react-query
+
   const form = async (data: FormInputs) => {
     await fetch('http://localhost:3000/users/sign-up', {
       method: 'POST',
