@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 import asyncHandler from 'express-async-handler'
 import DuplicateEmailError from '../errors/duplicateEmailError'
 import pool from '../db/pool'
+import bcrypt from 'bcryptjs'
 
 const usersPost = asyncHandler(async (req: Request, res: Response) => {
   const { firstName, lastName, email, password } = req.body
