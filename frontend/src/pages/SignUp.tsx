@@ -121,6 +121,22 @@ export default function SignUp() {
   // https://tanstack.com/query/latest/docs/framework/react/guides/mutations
   // To start off, we are going to use the custom hook, useMutation, from @tanstack/react-query
 
+  const [loadingSubmission, loadingSubmissionHandler] = useDisclosure(false)
+
+  const mutation = useMutation({
+    mutationFn: async (form: FormInputs) => {
+      const response = await fetch('http://localhost:3000/users/sign-up', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!response.ok) {
+        throw new Error('Failed to submit form')
+      }
+      return response.json()
+    },
+  })
+
   const form = async (data: FormInputs) => {
     await fetch('http://localhost:3000/users/sign-up', {
       method: 'POST',
