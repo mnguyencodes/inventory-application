@@ -11,22 +11,26 @@ import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
 
 function App() {
+  const queryClient = new QueryClient()
+
   return (
     <>
       <MantineProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="games" element={<Game />} />
-              <Route path="users">
-                <Route index element={<Users />} />
-                <Route path="log-in" element={<LogIn />} />
-                <Route path="sign-up" element={<SignUp />} />
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="games" element={<Game />} />
+                <Route path="users">
+                  <Route index element={<Users />} />
+                  <Route path="log-in" element={<LogIn />} />
+                  <Route path="sign-up" element={<SignUp />} />
+                </Route>
               </Route>
-            </Route>
-          </Routes>
-        </BrowserRouter>
+            </Routes>
+          </BrowserRouter>
+        </QueryClientProvider>
       </MantineProvider>
     </>
   )
