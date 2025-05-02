@@ -142,13 +142,9 @@ export default function SignUp() {
     },
   })
 
-  const form = async (data: FormInputs) => {
-    await fetch('http://localhost:3000/users/sign-up', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-    reset()
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    mutation.mutate(new FormData(event.currentTarget))
   }
 
   const [focusPassword, setfocusPassword] = useState(false)
@@ -160,7 +156,7 @@ export default function SignUp() {
   return (
     <>
       <h1 className={formStyles.title}>Sign Up</h1>
-      <form className={formStyles.form} onSubmit={handleSubmit(form)}>
+      <form className={formStyles.form} onSubmit={onSubmit}>
         <TextInput
           {...register('firstName', { required: true })}
           label="First Name"
