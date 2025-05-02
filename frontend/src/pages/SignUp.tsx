@@ -215,7 +215,7 @@ export default function SignUp() {
           <p className={styles.invalid}>{errors.confirmPassword.message}</p>
         )}
         <Button type="submit" variant="filled" disabled={!isValid}>
-          Submit
+          {mutation.isPending ? 'Submitting...' : 'Submit'}
         </Button>
       </form>
     </>
