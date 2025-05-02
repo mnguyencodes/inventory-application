@@ -126,12 +126,7 @@ export default function SignUp() {
       return axios.post('http://localhost:3000/users/sign-up', formData, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
       })
-      if (!response.ok) {
-        throw new Error('Failed to submit form')
-      }
-      return response.json()
     },
     onSuccess: (data) => alert(`Success! ${JSON.stringify(data)}`),
     onError: (error) => alert(`Error: ${error.message}`),
