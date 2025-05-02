@@ -129,8 +129,8 @@ export default function SignUp() {
   const [loadingSubmission, loadingSubmissionHandler] = useDisclosure(false)
 
   const mutation = useMutation({
-    mutationFn: async (form: FormInputs) => {
-      const response = await fetch('http://localhost:3000/users/sign-up', {
+    mutationFn: (formData: FormData) => {
+      return axios.post('http://localhost:3000/users/sign-up', formData, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -140,6 +140,8 @@ export default function SignUp() {
       }
       return response.json()
     },
+    onSuccess: (data) => alert(`Success! ${JSON.stringify(data)}`),
+    onError: (error) => alert(`Error: ${error.message}`),
   })
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
