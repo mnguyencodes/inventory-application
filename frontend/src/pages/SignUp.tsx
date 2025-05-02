@@ -119,13 +119,6 @@ export default function SignUp() {
     }
   }
 
-  // https://tanstack.com/query/latest/docs/framework/react/guides/mutations
-  // To start off, we are going to use the custom hook, useMutation, from @tanstack/react-query
-
-  // Note: Set up a QueryClientProvider in the App component, much like how you had set up MantineProvider.
-  // Details here:
-  // https://tanstack.com/query/latest/docs/framework/react/reference/QueryClientProvider
-
   const [loadingSubmission, loadingSubmissionHandler] = useDisclosure(false)
 
   const mutation = useMutation({
