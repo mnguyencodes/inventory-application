@@ -126,11 +126,13 @@ export default function SignUp() {
   const [loadingSubmission, loadingSubmissionHandler] = useDisclosure(false)
 
   const mutation = useMutation({
-    mutationFn: (formData: FormData) => {
-      return axios.post('http://localhost:3000/users/sign-up', formData, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-      })
+    mutationFn: async (formData: FormData): Promise<SignUpResponse> => {
+      const plainObject = Object.fromEntries(formData.entries())
+      const response = await axios.post<SignUpResponse>(
+        'http://localhost:3000/users/sign-up',
+        plainObject
+      )
+      return response.data
     },
     onSuccess: (data) => alert(`Success! ${JSON.stringify(data)}`),
     onError: (error) => alert(`Error: ${error.message}`),
