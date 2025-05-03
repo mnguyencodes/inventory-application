@@ -134,8 +134,15 @@ export default function SignUp() {
       )
       return response.data
     },
-    onSuccess: (data) => alert(`Success! ${JSON.stringify(data)}`),
-    onError: (error) => alert(`Error: ${error.message}`),
+    onSuccess: (data) => alert(`Success! ${data.message}`),
+    onError: (error) => {
+      if (axios.isAxiosError(error) && error.response) {
+        // Safely access the response data
+        alert(`Error: ${error.response.data.message}`)
+      } else {
+        alert('An unexpected error occurred')
+      }
+    },
   })
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
