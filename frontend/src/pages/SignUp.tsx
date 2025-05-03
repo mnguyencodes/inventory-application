@@ -12,6 +12,10 @@ import { IconPointFilled, IconCheck, IconX } from '@tabler/icons-react'
 import styles from './_styles/SignUp.module.css'
 import formStyles from './_styles/Form.module.css'
 
+interface SignUpResponse {
+  message: string
+}
+
 interface FormInputs {
   firstName: string
   lastName: string
