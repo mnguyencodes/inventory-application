@@ -5,7 +5,14 @@ interface CustomError extends Error {
 }
 
 const errorHandler = (err: CustomError, req: Request, res: Response, next: NextFunction) => {
-  res.status(err.statusCode || 500).send({ errors: err.message })
+  const statusCode = err.statusCode || 500
+  const message = err.message || 'Internal Server Error'
+  console.error(err) // Log the error for debugging
+  res.status(statusCode).json({
+    status: 'error',
+    statusCode,
+    message,
+  })
 }
 
 export { errorHandler }
