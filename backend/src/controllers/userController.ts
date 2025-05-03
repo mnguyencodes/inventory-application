@@ -22,6 +22,9 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
       password,
     },
   })
+  res.status(201).json({
+    message: 'User created successfully',
+  })
 })
 
 const usersGet = asyncHandler(async (req: Request, res: Response) => {
