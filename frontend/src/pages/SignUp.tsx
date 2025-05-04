@@ -126,6 +126,8 @@ export default function SignUp() {
 
   const [loadingSubmission, loadingSubmissionHandler] = useDisclosure(false)
 
+  const navigate = useNavigate()
+
   const mutation = useMutation({
     mutationFn: async (formData: FormData): Promise<SignUpResponse> => {
       const plainObject = Object.fromEntries(formData.entries())
@@ -135,7 +137,10 @@ export default function SignUp() {
       )
       return response.data
     },
-    onSuccess: (data) => alert(`Success! ${data.message}`),
+    onSuccess: (data) => {
+      alert(`Success! ${data.message}`)
+      navigate('dashboard')
+    },
     onError: (error) => {
       if (axios.isAxiosError(error) && error.response) {
         // Safely access the response data
