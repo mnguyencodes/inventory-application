@@ -139,7 +139,7 @@ export default function SignUp() {
     },
     onSuccess: (data) => {
       alert(`Success! ${data.message}`)
-      navigate('dashboard')
+      navigate('dashboard') // Using 'dashboard' redirects users to '/users/sign-up/dashboard'. Need to change this to '/dashboard'.
     },
     onError: (error) => {
       if (axios.isAxiosError(error) && error.response) {
