@@ -1,12 +1,21 @@
-import { Button, TextInput, PasswordInput } from '@mantine/core'
+import { Button, TextInput, PasswordInput, LoadingOverlay, Box } from '@mantine/core'
+import { useDisclosure } from '@mantine/hooks'
 import { useForm, useWatch, Control } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { useState } from 'react'
+import { useNavigate } from 'react-router'
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
+import { useMutation } from '@tanstack/react-query'
 import clsx from 'clsx'
 import { IconPointFilled, IconCheck, IconX } from '@tabler/icons-react'
 import styles from './_styles/SignUp.module.css'
 import formStyles from './_styles/Form.module.css'
+
+interface SignUpResponse {
+  message: string
+}
 
 interface FormInputs {
   firstName: string
@@ -115,13 +124,36 @@ export default function SignUp() {
     }
   }
 
-  const form = async (data: FormInputs) => {
-    await fetch('http://localhost:3000/users/sign-up', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    })
-    reset()
+  const [loadingSubmission, loadingSubmissionHandler] = useDisclosure(false)
+
+  const navigate = useNavigate()
+
+  const mutation = useMutation({
+    mutationFn: async (formData: FormData): Promise<SignUpResponse> => {
+      const plainObject = Object.fromEntries(formData.entries())
+      const response = await axios.post<SignUpResponse>(
+        'http://localhost:3000/users/sign-up',
+        plainObject
+      )
+      return response.data
+    },
+    onSuccess: (data) => {
+      alert(`Success! ${data.message}`)
+      navigate('/dashboard')
+    },
+    onError: (error) => {
+      if (axios.isAxiosError(error) && error.response) {
+        // Safely access the response data
+        alert(`Error: ${error.response.data.message}`)
+      } else {
+        alert('An unexpected error occurred')
+      }
+    },
+  })
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    mutation.mutate(new FormData(event.currentTarget))
   }
 
   const [focusPassword, setfocusPassword] = useState(false)
@@ -133,7 +165,7 @@ export default function SignUp() {
   return (
     <>
       <h1 className={formStyles.title}>Sign Up</h1>
-      <form className={formStyles.form} onSubmit={handleSubmit(form)}>
+      <form className={formStyles.form} onSubmit={onSubmit}>
         <TextInput
           {...register('firstName', { required: true })}
           label="First Name"
@@ -190,7 +222,14 @@ export default function SignUp() {
           <p className={styles.invalid}>{errors.confirmPassword.message}</p>
         )}
         <Button type="submit" variant="filled" disabled={!isValid}>
-          Submit
+          {mutation.isPending ? 'Submitting...' : 'Submit'}
+          {/* Test Results:
+            Submission with valid input where the email already exists, error code of 400 is returned.
+
+            Successful submission of new user has the submit button permanently stay as 'Submitting...'
+              It would seem that there is no response from the server after a successful submission (new unique user).
+
+          */}
         </Button>
       </form>
     </>
