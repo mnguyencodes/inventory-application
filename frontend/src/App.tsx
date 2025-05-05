@@ -9,6 +9,7 @@ import Game from './pages/Game'
 import Users from './pages/User'
 import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
+import Dashboard from './pages/Dashboard'
 
 function App() {
   const queryClient = new QueryClient()
@@ -27,6 +28,7 @@ function App() {
                   <Route path="log-in" element={<LogIn />} />
                   <Route path="sign-up" element={<SignUp />} />
                 </Route>
+                <Route path="dashboard" element={<Dashboard />} />
               </Route>
             </Routes>
           </BrowserRouter>
