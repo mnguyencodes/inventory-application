@@ -17,6 +17,17 @@ interface FormInputs {
 export default function LogIn() {
   const { register, handleSubmit, reset } = useForm<FormInputs>()
 
+  const mutation = useMutation({
+    mutationFn: async (formData: FormData): Promise<LogInResponse> => {
+      const plainObject = Object.fromEntries(formData.entries())
+      const response = await axios.post<LogInResponse>(
+        'http://localhost:3000/users/log-in',
+        plainObject
+      )
+      return response.data
+    },
+  })
+
   const form = async (data: FormInputs) => {
     await fetch('http://localhost:3000/authentication/log-in', {
       method: 'POST',
