@@ -1,5 +1,6 @@
 import { Button, TextInput, PasswordInput } from '@mantine/core'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { useMutation } from '@tanstack/react-query'
 import formStyles from './_styles/Form.module.css'
@@ -25,6 +26,16 @@ export default function LogIn() {
         plainObject
       )
       return response.data
+    },
+    onSuccess: (data) => {
+      alert(`Success! ${data.message}`)
+    },
+    onError: (error) => {
+      if (axios.isAxiosError(error) && error.response) {
+        alert(`Error: ${error.response.data.message}`)
+      } else {
+        alert('An unexpected error occurred')
+      }
     },
   })
 
