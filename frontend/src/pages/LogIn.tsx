@@ -5,6 +5,10 @@ import { useMutation } from '@tanstack/react-query'
 import formStyles from './_styles/Form.module.css'
 import styles from './_styles/LogIn.module.css'
 
+interface LogInResponse {
+  message: string
+}
+
 interface FormInputs {
   email: string
   password: string
