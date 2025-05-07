@@ -55,7 +55,7 @@ export default function LogIn() {
   return (
     <>
       <h1 className={formStyles.title}>Log In</h1>
-      <form className={formStyles.form} onSubmit={handleSubmit(form)}>
+      <form className={formStyles.form} onSubmit={onSubmit}>
         <TextInput
           {...register('email', { required: true })}
           label="Email"
