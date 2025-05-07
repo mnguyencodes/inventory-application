@@ -39,6 +39,11 @@ export default function LogIn() {
     },
   })
 
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    mutation.mutate(new FormData(event.currentTarget))
+  }
+
   const form = async (data: FormInputs) => {
     await fetch('http://localhost:3000/authentication/log-in', {
       method: 'POST',
