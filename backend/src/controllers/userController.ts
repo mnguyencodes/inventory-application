@@ -60,4 +60,5 @@ const usersLogIn = asyncHandler(async (req: Request, res: Response) => {
 export default {
   usersPost,
   usersGet,
+  usersLogIn,
 }
