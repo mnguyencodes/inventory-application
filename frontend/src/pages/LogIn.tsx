@@ -67,7 +67,7 @@ export default function LogIn() {
           placeholder="********"
         />
         <Button type="submit" variant="filled">
-          Log in
+          {mutation.isPending ? 'Logging in...' : 'Log in'}
         </Button>
       </form>
     </>
