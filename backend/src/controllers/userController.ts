@@ -36,6 +36,27 @@ const usersGet = asyncHandler(async (req: Request, res: Response) => {
   res.send(allUsers)
 })
 
+const usersLogIn = asyncHandler(async (req: Request, res: Response) => {
+  const { email, password } = req.body
+  const user = await pool.user.findUnique({
+    where: {
+      email: email,
+    },
+  })
+  if (!user) {
+    res.status(401).json({ message: 'Invalid email or password' })
+    return
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password)
+  if (!isMatch) {
+    res.status(401).json({ message: 'Invalid email or password' })
+    return
+  }
+
+  res.status(200).json({ message: 'Login successful' })
+})
+
 export default {
   usersPost,
   usersGet,
