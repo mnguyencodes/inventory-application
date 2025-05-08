@@ -60,11 +60,13 @@ export default function LogIn() {
           {...register('email', { required: true })}
           label="Email"
           placeholder="jb007@m16.com"
+          value="testp@testp.com"
         />
         <PasswordInput
           {...register('password', { required: true })}
           label="Password"
           placeholder="********"
+          value="Test123$"
         />
         <Button type="submit" variant="filled">
           {mutation.isPending ? 'Logging in...' : 'Log in'}
