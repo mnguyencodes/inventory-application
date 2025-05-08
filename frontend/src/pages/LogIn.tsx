@@ -38,7 +38,7 @@ export default function LogIn() {
     onSuccess: (data) => {
       alert(`Success! ${data.message}`)
     },
-    onError: (error) => {
+    onError: (error: MutationError) => {
       if (axios.isAxiosError(error) && error.response) {
         alert(`Error: ${error.response.data.message}`)
       } else {
