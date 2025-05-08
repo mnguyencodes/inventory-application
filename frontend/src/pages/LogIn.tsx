@@ -26,6 +26,8 @@ interface FormInputs {
 export default function LogIn() {
   const { register, handleSubmit, reset } = useForm<FormInputs>()
 
+  const navigate = useNavigate()
+
   const mutation = useMutation({
     mutationFn: async (formData: FormData): Promise<LogInResponse> => {
       const plainObject = Object.fromEntries(formData.entries())
@@ -37,6 +39,7 @@ export default function LogIn() {
     },
     onSuccess: (data) => {
       alert(`Success! ${data.message}`)
+      navigate('/dashboard')
     },
     onError: (error: MutationError) => {
       if (axios.isAxiosError(error) && error.response) {
