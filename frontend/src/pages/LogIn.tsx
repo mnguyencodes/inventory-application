@@ -76,6 +76,11 @@ export default function LogIn() {
           placeholder="********"
           defaultValue="Test123$"
         />
+        {mutation.isError && (
+          <p className={formStyles.invalid}>
+            {mutation.error.response?.data.message || 'An error occurred'}
+          </p>
+        )}
         <Button type="submit" variant="filled">
           {mutation.isPending ? 'Logging in...' : 'Log in'}
         </Button>
