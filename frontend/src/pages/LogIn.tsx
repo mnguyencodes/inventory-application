@@ -10,6 +10,14 @@ interface LogInResponse {
   message: string
 }
 
+interface MutationError extends Error {
+  response?: {
+    data: {
+      message: string
+    }
+  }
+}
+
 interface FormInputs {
   email: string
   password: string
