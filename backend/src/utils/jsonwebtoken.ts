@@ -2,3 +2,11 @@ import jwt from 'jsonwebtoken'
 
 // use the following command to generate a 32-byte secret key
 // openssl rand -hex 32
+
+interface User {
+  id: number
+  firstName: string
+  lastName: string
+  email: string
+  password: string
+}
