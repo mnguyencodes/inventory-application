@@ -10,3 +10,13 @@ interface User {
   email: string
   password: string
 }
+
+const authenticateUser = (user: User) => {
+  return jwt.sign({ user }, process.env.SECRET as string, { expiresIn: '24h' }, (err, token) => {
+    if (err) {
+      console.error('Error generating token:', err)
+      return null
+    }
+    return token
+  })
+}
