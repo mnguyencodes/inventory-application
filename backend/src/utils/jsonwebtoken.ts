@@ -12,13 +12,13 @@ interface User {
 }
 
 const authenticateUser = (user: User) => {
-  return jwt.sign({ user }, process.env.SECRET as string, { expiresIn: '24h' }, (err, token) => {
-    if (err) {
-      console.error('Error generating token:', err)
-      return null
-    }
+  try {
+    const token = jwt.sign({ user }, process.env.SECRET as string, { expiresIn: '24h' })
     return token
-  })
+  } catch (err) {
+    console.error('Error generating token:', err)
+    return null
+  }
 }
 
 export default {
