@@ -20,3 +20,7 @@ const authenticateUser = (user: User) => {
     return token
   })
 }
+
+export default {
+  authenticateUser,
+}
