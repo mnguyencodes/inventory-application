@@ -140,6 +140,10 @@ export default function SignUp() {
     },
     onSuccess: (data) => {
       alert(`Success! ${data.message}`)
+      console.log('Token (Quick Test):', data.token)
+
+      // Token (Quick Test): eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyMiwiZmlyc3ROYW1lIjoiUXVpY2tUZXN0Rmlyc3QiLCJsYXN0TmFtZSI6IlF1aWNrVGVzdExhc3QiLCJlbWFpbCI6InFxQHF0ZXN0MS5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRLd08wTEtuLm5lQ3VlQXZWTS96d04uYkF6dG5nUHhEOXFaSmJSbkdvaUlveG52aVp5SHBOSyJ9LCJpYXQiOjE3NDY5Njk1MTYsImV4cCI6MTc0NzA1NTkxNn0.e_WD29nFDcUnbLf_Y9USDviYJx8hbh1znOCT8d6cNoU
+
       navigate('/dashboard')
     },
     onError: (error) => {
