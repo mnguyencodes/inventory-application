@@ -11,7 +11,7 @@ interface User {
   password: string
 }
 
-const authenticateUser = (user: User) => {
+const createToken = (user: User) => {
   try {
     const token = jwt.sign({ user }, process.env.SECRET as string, { expiresIn: '24h' })
     return token
@@ -22,5 +22,5 @@ const authenticateUser = (user: User) => {
 }
 
 export default {
-  authenticateUser,
+  createToken,
 }
