@@ -19,7 +19,7 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
   const salt = await bcrypt.genSalt(10)
   const hashedPassword = await bcrypt.hash(password, salt)
 
-  await pool.user.create({
+  const newUser = await pool.user.create({
     data: {
       firstName,
       lastName,
