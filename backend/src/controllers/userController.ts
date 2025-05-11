@@ -3,6 +3,7 @@ import asyncHandler from 'express-async-handler'
 import DuplicateEmailError from '../errors/duplicateEmailError'
 import pool from '../db/pool'
 import bcrypt from 'bcryptjs'
+import jsonwebtoken from '../utils/jsonwebtoken'
 
 const usersPost = asyncHandler(async (req: Request, res: Response) => {
   const { firstName, lastName, email, password } = req.body
