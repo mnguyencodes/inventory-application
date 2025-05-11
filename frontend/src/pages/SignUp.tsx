@@ -82,10 +82,11 @@ export default function SignUp() {
     mode: 'onChange',
     resolver: zodResolver(schema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
+      firstName: 'QuickTestFirst',
+      lastName: 'QuickTestLast',
+      email: 'qq@qtest.com',
+      password: 'Test1234!',
+      confirmPassword: 'Test1234!',
     },
   })
 
