@@ -27,6 +27,8 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
       password: hashedPassword,
     },
   })
+  const token = jsonwebtoken.createToken(newUser)
+  console.log('Token: ', token)
   res.status(201).json({
     message: 'User created successfully',
   })
