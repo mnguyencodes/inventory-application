@@ -4,6 +4,10 @@ import { Request, Response, NextFunction } from 'express'
 // use the following command to generate a 32-byte secret key
 // openssl rand -hex 32
 
+const unauthorizedMessage = {
+  message: 'Unauthorized: You need to be authenticated to access this page.',
+}
+
 interface User {
   id: number
   firstName: string
