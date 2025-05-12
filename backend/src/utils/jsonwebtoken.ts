@@ -16,6 +16,11 @@ interface UserPayload {
   user: User
 }
 
+interface RequestWithToken extends Request {
+  token?: string
+  user?: User
+}
+
 const createToken = (user: User) => {
   try {
     const token = jwt.sign({ user }, process.env.SECRET as string, { expiresIn: '24h' })
