@@ -12,6 +12,10 @@ interface User {
   password: string
 }
 
+interface UserPayload {
+  user: User
+}
+
 const createToken = (user: User) => {
   try {
     const token = jwt.sign({ user }, process.env.SECRET as string, { expiresIn: '24h' })
