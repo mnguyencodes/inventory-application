@@ -17,17 +17,19 @@ interface User {
 }
 
 interface UserPayload {
-  user: User
+  id: number
 }
 
 interface RequestWithToken extends Request {
   token?: string
-  user?: User
+  userId?: number
 }
 
 const createToken = (user: User) => {
   try {
-    const token = jwt.sign({ user }, process.env.SECRET as string, { expiresIn: '24h' })
+    const token = jwt.sign({ user: { id: user.id } }, process.env.SECRET as string, {
+      expiresIn: '24h',
+    })
     return token
   } catch (err) {
     console.error('Error generating token:', err)
