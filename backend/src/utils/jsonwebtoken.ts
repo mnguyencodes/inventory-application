@@ -41,9 +41,15 @@ const createToken = (userId: number) => {
 const verifyToken = (req: RequestWithToken, res: Response, next: NextFunction) => {
   const bearerHeader = req.headers['authorization']
   if (typeof bearerHeader !== 'undefined') {
-    const bearer = bearerHeader.split(' ')
-    const token = bearer[1]
+    const token = bearerHeader.split(' ')[1]
+    const decoded = decodeToken(token)
+
+    if (!decoded) {
+      return res.status(401).json(unauthorizedMessage)
+    }
+
     req.token = token
+    req.userId = decoded.id
     next()
   } else {
     res.status(401).json(unauthorizedMessage)
