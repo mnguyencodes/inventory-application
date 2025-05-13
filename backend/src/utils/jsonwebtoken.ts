@@ -38,7 +38,11 @@ const createToken = (userId: number) => {
   }
 }
 
-const verifyToken = (req: RequestWithToken, res: Response, next: NextFunction) => {
+const verifyToken: (req: RequestWithToken, res: Response, next: NextFunction) => void = (
+  req,
+  res,
+  next
+) => {
   const bearerHeader = req.headers['authorization']
   if (typeof bearerHeader !== 'undefined') {
     const token = bearerHeader.split(' ')[1]
