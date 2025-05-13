@@ -27,7 +27,7 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
       password: hashedPassword,
     },
   })
-  const token = jsonwebtoken.createToken(newUser)
+  const token = jsonwebtoken.createToken(newUser.id)
   console.log('Token: ', token)
 
   // Token successfully generated

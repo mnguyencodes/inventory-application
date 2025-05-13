@@ -25,9 +25,9 @@ interface RequestWithToken extends Request {
   userId?: number
 }
 
-const createToken = (user: User) => {
+const createToken = (userId: number) => {
   try {
-    const token = jwt.sign({ user: { id: user.id } }, process.env.SECRET as string, {
+    const token = jwt.sign({ id: userId }, process.env.SECRET as string, {
       expiresIn: '24h',
     })
     return token
