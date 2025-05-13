@@ -8,6 +8,7 @@ const unauthorizedMessage = {
   message: 'Unauthorized: You need to be authenticated to access this page.',
 }
 
+// May not be needed. Will delete at a later time.
 interface User {
   id: number
   firstName: string
