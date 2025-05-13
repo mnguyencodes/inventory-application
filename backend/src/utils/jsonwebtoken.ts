@@ -45,14 +45,14 @@ const verifyToken = (req: RequestWithToken, res: Response, next: NextFunction) =
     const decoded = decodeToken(token)
 
     if (!decoded) {
-      return res.status(401).json(unauthorizedMessage)
+      return res.status(401).json(unauthorizedMessage) // invalid token
     }
 
     req.token = token
     req.userId = decoded.id
     next()
   } else {
-    res.status(401).json(unauthorizedMessage)
+    res.status(401).json(unauthorizedMessage) // no token provided
   }
 }
 
