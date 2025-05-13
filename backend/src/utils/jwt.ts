@@ -8,6 +8,10 @@ const unauthorizedMessage = {
   message: 'Unauthorized: You need to be authenticated to access this page.',
 }
 
+// const forbiddenMessage = {
+//   message: 'Forbidden: You do not have the necessary permissions to access this page.',
+// }
+
 // May not be needed. Will delete at a later time.
 interface User {
   id: number
@@ -72,5 +76,4 @@ const decodeToken = (token: string) => {
 export default {
   createToken,
   verifyToken,
-  decodeToken,
 }

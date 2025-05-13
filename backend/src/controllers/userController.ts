@@ -3,7 +3,7 @@ import asyncHandler from 'express-async-handler'
 import DuplicateEmailError from '../errors/duplicateEmailError'
 import pool from '../db/pool'
 import bcrypt from 'bcryptjs'
-import jsonwebtoken from '../utils/jsonwebtoken'
+import jwt from '../utils/jwt'
 
 const usersPost = asyncHandler(async (req: Request, res: Response) => {
   const { firstName, lastName, email, password } = req.body
@@ -27,7 +27,7 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
       password: hashedPassword,
     },
   })
-  const token = jsonwebtoken.createToken(newUser.id)
+  const token = jwt.createToken(newUser.id)
   console.log('Token: ', token)
 
   // Token successfully generated
