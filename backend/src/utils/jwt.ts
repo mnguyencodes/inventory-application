@@ -25,7 +25,7 @@ interface UserPayload {
   id: number
 }
 
-interface RequestWithToken extends Request {
+export interface RequestWithToken extends Request {
   token?: string
   userId?: number
 }
