@@ -66,7 +66,8 @@ const usersLogIn = asyncHandler(async (req: Request, res: Response) => {
     return
   }
 
-  res.status(200).json({ message: 'Login successful' })
+  const token = jwt.createToken(user.id)
+  res.status(200).json({ message: 'Login successful', token })
 })
 
 export default {
