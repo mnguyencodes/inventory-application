@@ -39,6 +39,7 @@ export default function LogIn() {
     },
     onSuccess: (data) => {
       alert(`Success! ${data.message}`)
+      console.log('Token:', data)
       navigate('/dashboard')
     },
     onError: (error: MutationError) => {
