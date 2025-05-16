@@ -21,7 +21,7 @@ interface User {
   password: string
 }
 
-interface UserPayload {
+interface JwtPayload {
   id: number
 }
 
@@ -66,7 +66,7 @@ const verifyToken: (req: RequestWithToken, res: Response, next: NextFunction) =>
 
 const decodeToken = (token: string) => {
   try {
-    return jwt.verify(token, process.env.SECRET as string) as UserPayload
+    return jwt.verify(token, process.env.SECRET as string) as JwtPayload
   } catch (err) {
     console.error('Error decoding token:', err)
     return null
