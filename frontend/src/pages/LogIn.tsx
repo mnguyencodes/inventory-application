@@ -48,6 +48,8 @@ export default function LogIn() {
       //   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImlhdCI6MTc0NzMxNDE5MywiZXhwIjoxNzQ3NDAwNTkzfQ.QByymInpZRcdOzeQgihutI55mu3TjtV4L14g_XhfT8s"
       // }
 
+      localStorage.setItem('token', data.token)
+
       navigate('/dashboard')
     },
     onError: (error: MutationError) => {
