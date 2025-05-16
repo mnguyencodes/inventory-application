@@ -8,6 +8,7 @@ import styles from './_styles/LogIn.module.css'
 
 interface LogInResponse {
   message: string
+  token: string
 }
 
 interface MutationError extends Error {
