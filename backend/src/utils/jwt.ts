@@ -21,7 +21,7 @@ interface User {
   password: string
 }
 
-interface JwtPayload {
+export interface JwtPayload {
   id: number
 }
 
