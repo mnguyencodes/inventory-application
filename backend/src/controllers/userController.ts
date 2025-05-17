@@ -44,6 +44,8 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
 const usersGet = asyncHandler(async (req: RequestWithToken, res: Response) => {
   const allUsers = await pool.user.findMany()
 
+  console.log(req.token) // Log the token for testing purposes
+
   // Test if the token is working
   res.send({ allUsers, userId: req.userId, token: req.token })
 })
