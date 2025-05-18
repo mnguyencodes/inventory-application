@@ -13,25 +13,28 @@ const jwtOptions = {
 // This function is used to authenticate the user using the JWT strategy
 // Problem: Every time a user accesses a protected route, the server creates a new JwtStrategy instance.
 // Solution: Use a singleton pattern to ensure that only one instance of JwtStrategy is created.
-const authenticate = () => {
-  passport.use(
-    new JwtStrategy(jwtOptions, async (jwtPayload: JwtPayload, done) => {
-      try {
-        // Query the database to find the user by ID
-        const user = await pool.user.findUnique({
-          where: { id: jwtPayload.id },
-        })
-        if (user) {
-          return done(null, user) // Pass the user to the next middleware
-        } else {
-          return done(null, false) // No user found
-        }
-      } catch (err) {
-        return done(err, false) // Handle any errors
+
+// Without wrapping passport.use() in a function, the app will only register the JWT strategy once.
+passport.use(
+  new JwtStrategy(jwtOptions, async (jwtPayload: JwtPayload, done) => {
+    try {
+      // Query the database to find the user by ID
+      const user = await pool.user.findUnique({
+        where: { id: jwtPayload.id },
+      })
+      if (user) {
+        return done(null, user) // Pass the user to the next middleware
+      } else {
+        return done(null, false) // No user found
       }
-    })
-  )
-}
+    } catch (err) {
+      return done(err, false) // Handle any errors
+    }
+  })
+)
+
+// Middleware to authenticate the user using the JWT strategy
+const authenticate = passport.authenticate('jwt', { session: false })
 
 export default {
   authenticate,
