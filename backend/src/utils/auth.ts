@@ -10,6 +10,9 @@ const jwtOptions = {
   secretOrKey: process.env.SECRET as string,
 }
 
+// This function is used to authenticate the user using the JWT strategy
+// Problem: Every time a user accesses a protected route, the server creates a new JwtStrategy instance.
+// Solution: Use a singleton pattern to ensure that only one instance of JwtStrategy is created.
 const authenticate = () => {
   passport.use(
     new JwtStrategy(jwtOptions, async (jwtPayload: JwtPayload, done) => {
