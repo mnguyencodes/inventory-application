@@ -14,16 +14,17 @@ const authenticate = () => {
   passport.use(
     new JwtStrategy(jwtOptions, async (jwtPayload: JwtPayload, done) => {
       try {
+        // Query the database to find the user by ID
         const user = await pool.user.findUnique({
           where: { id: jwtPayload.id },
         })
         if (user) {
-          return done(null, user)
+          return done(null, user) // Pass the user to the next middleware
         } else {
-          return done(null, false)
+          return done(null, false) // No user found
         }
       } catch (err) {
-        return done(err, false)
+        return done(err, false) // Handle any errors
       }
     })
   )
