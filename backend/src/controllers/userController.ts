@@ -41,21 +41,24 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
   })
 })
 
-const usersGet = asyncHandler(async (req: RequestWithToken, res: Response) => {
-  const allUsers = await pool.user.findMany()
+const usersGet = [
+  auth.authenticate, // Authenticate the user using the JWT strategy
+  asyncHandler(async (req: RequestWithToken, res: Response) => {
+    const allUsers = await pool.user.findMany()
 
-  // Check if the user is authenticated
-  // Flaw: Even if the token is invalid, the user will still be able to access this route.
-  // This is because the token is not verified.
-  if (!req.token) {
-    res.status(401).json({ message: 'Please log in to access this resource.' })
-    return
-  }
-  console.log(req.token) // Log the token for testing purposes
+    // Check if the user is authenticated
+    // Flaw: Even if the token is invalid, the user will still be able to access this route.
+    // This is because the token is not verified.
+    if (!req.token) {
+      res.status(401).json({ message: 'Please log in to access this resource.' })
+      return
+    }
+    console.log(req.token) // Log the token for testing purposes
 
-  // Test if the token is working
-  res.send({ allUsers, userId: req.userId, token: req.token })
-})
+    // Test if the token is working
+    res.send({ allUsers, userId: req.userId, token: req.token })
+  }),
+]
 
 const usersLogIn = asyncHandler(async (req: Request, res: Response) => {
   const { email, password } = req.body
