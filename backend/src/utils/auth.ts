@@ -1,5 +1,6 @@
 // passport jwt strategy
 
+import { RequestHandler } from 'express'
 import passport from 'passport'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 import { JwtPayload } from './jwt'
@@ -30,7 +31,7 @@ passport.use(
 )
 
 // Middleware to authenticate the user using the JWT strategy
-const authenticate = passport.authenticate('jwt', { session: false })
+const authenticate: RequestHandler = passport.authenticate('jwt', { session: false })
 
 export default {
   authenticate,
