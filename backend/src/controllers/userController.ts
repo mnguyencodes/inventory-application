@@ -45,6 +45,8 @@ const usersGet = asyncHandler(async (req: RequestWithToken, res: Response) => {
   const allUsers = await pool.user.findMany()
 
   // Check if the user is authenticated
+  // Flaw: Even if the token is invalid, the user will still be able to access this route.
+  // This is because the token is not verified.
   if (!req.token) {
     res.status(401).json({ message: 'Please log in to access this resource.' })
     return
