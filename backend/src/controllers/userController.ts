@@ -44,6 +44,11 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
 const usersGet = asyncHandler(async (req: RequestWithToken, res: Response) => {
   const allUsers = await pool.user.findMany()
 
+  // Check if the user is authenticated
+  if (!req.token) {
+    res.status(401).json({ message: 'Please log in to access this resource.' })
+    return
+  }
   console.log(req.token) // Log the token for testing purposes
 
   // Test if the token is working
