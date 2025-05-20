@@ -4,6 +4,7 @@ import DuplicateEmailError from '../errors/duplicateEmailError'
 import pool from '../db/pool'
 import bcrypt from 'bcryptjs'
 import jwt, { RequestWithToken } from '../utils/jwt'
+import auth from '../utils/auth'
 
 const usersPost = asyncHandler(async (req: Request, res: Response) => {
   const { firstName, lastName, email, password } = req.body
