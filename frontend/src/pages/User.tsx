@@ -10,7 +10,18 @@ type User = {
 }
 
 export default function User() {
-  const { data, loading, error, refetch, abort } = useFetch<User[]>('http://localhost:3000/users')
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const response = await fetch('http://localhost:3000/users', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+    },
+  })
 
   const rowsEl =
     data &&
