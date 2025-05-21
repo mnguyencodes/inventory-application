@@ -46,8 +46,8 @@ export default function User() {
   }
 
   const rowsEl =
-    data &&
-    data.map((user: User) => {
+    data?.allUsers &&
+    data.allUsers.map((user: User) => {
       return (
         <Table.Tr key={user.id}>
           <Table.Td>{user.firstName}</Table.Td>
