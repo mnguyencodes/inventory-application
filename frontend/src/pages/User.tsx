@@ -1,4 +1,3 @@
-import { useFetch } from '@mantine/hooks'
 import { Table } from '@mantine/core'
 import { useQuery } from '@tanstack/react-query'
 
