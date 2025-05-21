@@ -33,6 +33,8 @@ export default function User() {
       }
       return response.json()
     },
+    // Optimize the query to only run if the token is available
+    enabled: !!token,
   })
 
   const rowsEl =
