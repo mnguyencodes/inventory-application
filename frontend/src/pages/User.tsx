@@ -10,6 +10,13 @@ type User = {
 }
 
 export default function User() {
+  // Check if the user is logged in by checking for a token in localStorage
+  const token = localStorage.getItem('token')
+  if (!token) {
+    console.error('No token found')
+    return <div>Please log in to access this page.</div>
+  }
+
   const { data, isLoading, error } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
