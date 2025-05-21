@@ -37,6 +37,14 @@ export default function User() {
     enabled: !!token,
   })
 
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>
+  }
+
   const rowsEl =
     data &&
     data.map((user: User) => {
