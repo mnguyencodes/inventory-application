@@ -27,6 +27,11 @@ export default function User() {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       })
+      if (!response.ok) {
+        const errorData = await response.json()
+        throw new Error(errorData.message || 'Failed to fetch users')
+      }
+      return response.json()
     },
   })
 
