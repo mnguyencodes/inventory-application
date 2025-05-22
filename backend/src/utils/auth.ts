@@ -14,14 +14,17 @@ const jwtOptions = {
 // Without wrapping passport.use() in a function, the app will only register the JWT strategy once.
 passport.use(
   new JwtStrategy(jwtOptions, async (jwtPayload: JwtPayload, done) => {
+    console.log('JWT Payload:', jwtPayload) // Log the JWT payload for testing purposes
     try {
       // Query the database to find the user by ID
       const user = await pool.user.findUnique({
         where: { id: jwtPayload.id },
       })
       if (user) {
+        console.log('User found:', user) // Log the user for testing purposes
         return done(null, user) // Pass the user to the next middleware
       } else {
+        console.log('User not found') // Log if the user is not found
         return done(null, false) // No user found
       }
     } catch (err) {
