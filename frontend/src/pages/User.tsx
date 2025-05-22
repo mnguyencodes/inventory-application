@@ -34,6 +34,7 @@ export default function User() {
       return response.json()
     },
     // Optimize the query to only run if the token is available
+    // The !! operator is used to convert a value into its boolean equivalent
     enabled: !!token,
   })
 
