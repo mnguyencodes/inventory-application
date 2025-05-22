@@ -44,7 +44,7 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
 
 const usersGet = [
   auth.authenticate, // Authenticate the user using the JWT strategy
-  asyncHandler(async (req: RequestWithToken, res: Response) => {
+  asyncHandler(async (req: Request, res: Response) => {
     const allUsers = await pool.user.findMany()
 
     // Check if the user is authenticated
@@ -52,10 +52,8 @@ const usersGet = [
       res.status(401).json({ message: 'Please log in to access this resource.' })
       return
     }
-    console.log(req.token) // Log the token for testing purposes
 
-    // Test if the token is working
-    res.send({ allUsers, userId: req.userId, token: req.token })
+    res.send({ allUsers })
   }),
 ]
 
