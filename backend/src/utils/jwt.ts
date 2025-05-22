@@ -25,6 +25,9 @@ export interface JwtPayload {
   id: number
 }
 
+// The passport.authenticate() middleware will automatically decode the JWT
+// and attach the user object to the request.
+// Thus, there is no need to define RequestWithToken here.
 export interface RequestWithToken extends Request {
   token?: string
   userId?: number
