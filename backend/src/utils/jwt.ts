@@ -12,15 +12,6 @@ const unauthorizedMessage = {
 //   message: 'Forbidden: You do not have the necessary permissions to access this page.',
 // }
 
-// May not be needed. Will delete at a later time.
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  email: string
-  password: string
-}
-
 export interface JwtPayload {
   id: number
 }
