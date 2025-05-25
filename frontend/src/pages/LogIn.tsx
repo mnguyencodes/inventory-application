@@ -40,13 +40,6 @@ export default function LogIn() {
     },
     onSuccess: (data) => {
       alert(`Success! ${data.message}`)
-      console.log('Token:', data)
-      // Token created and received successfully. Response:
-      // {
-      //   message: "Login successful",
-      //   token: "
-      //   eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjAsImlhdCI6MTc0NzMxNDE5MywiZXhwIjoxNzQ3NDAwNTkzfQ.QByymInpZRcdOzeQgihutI55mu3TjtV4L14g_XhfT8s"
-      // }
 
       localStorage.setItem('token', data.token)
 
