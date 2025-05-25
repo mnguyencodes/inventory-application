@@ -29,12 +29,6 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
     },
   })
   const token = jwt.createToken(newUser.id)
-  console.log('Token: ', token)
-
-  // Token successfully generated
-  // Example token:
-
-  // Token:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyMSwiZmlyc3ROYW1lIjoiUXVpY2tUZXN0Rmlyc3QiLCJsYXN0TmFtZSI6IlF1aWNrVGVzdExhc3QiLCJlbWFpbCI6InFxQHF0ZXN0LmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJGtlSHBMcXhIZ1hiWE1BdklRTTh6Zy5abDhubVhnQ3dOaVdhM2pScUd3d0puekdVVHdWdnFhIn0sImlhdCI6MTc0Njk2ODUyMiwiZXhwIjoxNzQ3MDU0OTIyfQ.QkHIDe5F0vW1eQHcVrDpMA_l9ureTBS3JtMsPK298Ss
 
   res.status(201).json({
     message: 'User created successfully',
