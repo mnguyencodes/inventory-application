@@ -1,3 +1,6 @@
+// When the user signs in, they will receive a JWT token that they can use to access protected routes.
+// TODO: Notify Navbar component to update the UI based on authentication status.
+
 import { Button, TextInput, PasswordInput } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
