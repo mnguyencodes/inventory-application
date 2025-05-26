@@ -82,10 +82,11 @@ export default function SignUp() {
     mode: 'onChange',
     resolver: zodResolver(schema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
+      firstName: 'QuickTestFirst',
+      lastName: 'QuickTestLast',
+      email: 'qq@qtest.com',
+      password: 'Test1234!',
+      confirmPassword: 'Test1234!',
     },
   })
 
@@ -223,13 +224,6 @@ export default function SignUp() {
         )}
         <Button type="submit" variant="filled" disabled={!isValid}>
           {mutation.isPending ? 'Submitting...' : 'Submit'}
-          {/* Test Results:
-            Submission with valid input where the email already exists, error code of 400 is returned.
-
-            Successful submission of new user has the submit button permanently stay as 'Submitting...'
-              It would seem that there is no response from the server after a successful submission (new unique user).
-
-          */}
         </Button>
       </form>
     </>
