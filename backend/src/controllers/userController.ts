@@ -78,7 +78,3 @@ export default {
   usersGet,
   usersLogIn,
 }
-
-// Testing Purposes Email Account
-// Email: testp@testp.com
-// Password: Test123$
