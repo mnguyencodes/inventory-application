@@ -67,13 +67,11 @@ export default function LogIn() {
           {...register('email', { required: true })}
           label="Email"
           placeholder="jb007@m16.com"
-          defaultValue="testp@testp.com"
         />
         <PasswordInput
           {...register('password', { required: true })}
           label="Password"
           placeholder="********"
-          defaultValue="Test123$"
         />
         {mutation.isError && (
           <p className={formStyles.invalid}>
