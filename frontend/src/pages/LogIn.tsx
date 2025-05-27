@@ -5,6 +5,10 @@
 // Continue reading from here:
 // https://www.reddit.com/r/reactjs/comments/1ahe1he/now_learning_zustand_is_there_ever_a_situation/
 
+// It seems that combining Zustand with React Context to share the store instance is a great solution.
+// Article link:
+// https://tkdodo.eu/blog/zustand-and-react-context
+
 import { Button, TextInput, PasswordInput } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
