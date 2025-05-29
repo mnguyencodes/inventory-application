@@ -8,6 +8,8 @@ interface AuthState {
   logOut: () => void
 }
 
+// 'set' is a function provided by Zustand to update the state
+// Set up the Zustand store with initial state and actions
 const useAuthStore = create<AuthState>((set) => ({
   isAuthenticated: !!localStorage.getItem('token'), // Initialize based on token presence
   logIn: (token: string) => {
