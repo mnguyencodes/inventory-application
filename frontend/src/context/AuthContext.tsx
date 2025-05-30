@@ -2,3 +2,5 @@
 import { createContext, useContext } from 'react'
 import useAuthStore from '../store/useAuthStore'
 
+const AuthContext = createContext<typeof useAuthStore>(null!)
+
