@@ -4,3 +4,7 @@ import useAuthStore from '../store/useAuthStore'
 
 const AuthContext = createContext<typeof useAuthStore>(null!)
 
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  return <AuthContext.Provider value={useAuthStore}>{children}</AuthContext.Provider>
+}
+
