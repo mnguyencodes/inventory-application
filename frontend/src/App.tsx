@@ -12,6 +12,13 @@ import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
 import Dashboard from './pages/Dashboard'
 
+// AuthProvider is a context provider that wraps the application to provide authentication state.
+// MantineProvider is a provider for Mantine UI components.
+// QueryClientProvider is a provider for React Query to manage server state.
+
+// By having AuthProvider at the top level, all components within the app can access the authentication state.
+// This means that Mantine components (like the navbar sign-up/login buttons) can conditionally render based on whether the user is authenticated or not.
+
 function App() {
   const queryClient = new QueryClient()
 
