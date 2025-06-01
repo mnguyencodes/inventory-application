@@ -37,8 +37,8 @@ interface FormInputs {
 }
 
 export default function LogIn() {
+  const { logIn } = useAuth() // Get the logIn function from the AuthContext
   const { register } = useForm<FormInputs>()
-
   const navigate = useNavigate()
 
   const mutation = useMutation({
