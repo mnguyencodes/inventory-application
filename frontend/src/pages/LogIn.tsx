@@ -14,6 +14,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { useMutation } from '@tanstack/react-query'
+import useAuth from '../context/AuthContext'
 import formStyles from './_styles/Form.module.css'
 import styles from './_styles/LogIn.module.css'
 
