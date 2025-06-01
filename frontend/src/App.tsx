@@ -1,5 +1,6 @@
 import '@mantine/core/styles.css'
 import './_global.css'
+import { AuthProvider } from './context/AuthContext'
 import { MantineProvider } from '@mantine/core'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter, Routes, Route } from 'react-router'
