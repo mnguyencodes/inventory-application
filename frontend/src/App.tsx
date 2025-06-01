@@ -17,24 +17,26 @@ function App() {
 
   return (
     <>
-      <MantineProvider>
-        <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="games" element={<Game />} />
-                <Route path="users">
-                  <Route index element={<Users />} />
-                  <Route path="log-in" element={<LogIn />} />
-                  <Route path="sign-up" element={<SignUp />} />
+      <AuthProvider>
+        <MantineProvider>
+          <QueryClientProvider client={queryClient}>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                  <Route path="games" element={<Game />} />
+                  <Route path="users">
+                    <Route index element={<Users />} />
+                    <Route path="log-in" element={<LogIn />} />
+                    <Route path="sign-up" element={<SignUp />} />
+                  </Route>
+                  <Route path="dashboard" element={<Dashboard />} />
                 </Route>
-                <Route path="dashboard" element={<Dashboard />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </QueryClientProvider>
-      </MantineProvider>
+              </Routes>
+            </BrowserRouter>
+          </QueryClientProvider>
+        </MantineProvider>
+      </AuthProvider>
     </>
   )
 }
