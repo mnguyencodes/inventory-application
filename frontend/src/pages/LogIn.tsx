@@ -53,7 +53,6 @@ export default function LogIn() {
     onSuccess: (data) => {
       alert(`Success! ${data.message}`)
       logIn(data.token) // Update the authentication state with the token
-      localStorage.setItem('token', data.token)
       navigate('/dashboard')
     },
     onError: (error: MutationError) => {
