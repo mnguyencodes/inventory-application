@@ -12,6 +12,7 @@ import styles from './_styles/Navbar.module.css'
 export default function Navbar() {
   const { toggle } = useContext(AppShellInitContext)
   const [active, setActive] = useState<number | null>(null)
+  const { isAuthenticated, logOut } = useAuth()
 
   function handleClick(index: number, toggle: () => void) {
     setActive(index)
