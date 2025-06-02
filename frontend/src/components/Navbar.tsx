@@ -37,12 +37,22 @@ export default function Navbar() {
   return (
     <AppShell.Navbar className={styles.nav} p="md">
       <div className={styles.account}>
-        <Button variant="filled" component={NavLink} to="/users/sign-up">
-          Sign up
-        </Button>
-        <Button variant="light" component={NavLink} to="/users/log-in">
-          Log in
-        </Button>
+        {!isAuthenticated ? (
+          // If the user is not authenticated, show the sign-up and log-in buttons
+          <>
+            <Button variant="filled" component={NavLink} to="/users/sign-up">
+              Sign up
+            </Button>
+            <Button variant="light" component={NavLink} to="/users/log-in">
+              Log in
+            </Button>
+          </>
+        ) : (
+          // If the user is authenticated, show the log-out button
+          <Button variant="light" onClick={logOut}>
+            Log out
+          </Button>
+        )}
       </div>
       {navbarEl}
     </AppShell.Navbar>
