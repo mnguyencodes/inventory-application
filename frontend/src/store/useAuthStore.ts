@@ -1,6 +1,8 @@
 // Create a Zustand store to manage the authentication state.
 
 import { create } from 'zustand'
+
+// Will need to rethink this, as Zustand does not have direct access to React Router's hooks like `useNavigate`.
 import { useNavigate } from 'react-router'
 
 interface AuthState {
