@@ -15,7 +15,7 @@ function useNavigateHelper() {
 interface AuthState {
   isAuthenticated: boolean
   logIn: (token: string) => void
-  logOut: () => void
+  logOut: (navigate: (path: string) => void) => void
 }
 
 // 'set' is a function provided by Zustand to update the state
@@ -26,7 +26,7 @@ const useAuthStore = create<AuthState>((set) => ({
     localStorage.setItem('token', token)
     set({ isAuthenticated: true })
   },
-  logOut: () => {
+  logOut: (navigate: (path: string) => void) => {
     localStorage.removeItem('token')
     set({ isAuthenticated: false })
     const { navigate } = useNavigateHelper()
