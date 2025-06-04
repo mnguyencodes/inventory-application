@@ -5,6 +5,13 @@ import { create } from 'zustand'
 // Will need to rethink this, as Zustand does not have direct access to React Router's hooks like `useNavigate`.
 import { useNavigate } from 'react-router'
 
+// Create a custom hook to use the navigate function.
+// Will not work directly in Zustand store, need to rethink this approach.
+function useNavigateHelper() {
+  const navigate = useNavigate()
+  return { navigate }
+}
+
 interface AuthState {
   isAuthenticated: boolean
   logIn: (token: string) => void
@@ -22,6 +29,8 @@ const useAuthStore = create<AuthState>((set) => ({
   logOut: () => {
     localStorage.removeItem('token')
     set({ isAuthenticated: false })
+    const { navigate } = useNavigateHelper()
+    navigate('/users/log-in') // Redirect to the login page after logging out
   },
 }))
 
