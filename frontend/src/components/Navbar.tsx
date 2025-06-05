@@ -14,6 +14,7 @@ export default function Navbar() {
   const { toggle } = useContext(AppShellInitContext)
   const [active, setActive] = useState<number | null>(null)
   const { isAuthenticated, logOut } = useAuth()
+  const navigate = useNavigate()
 
   function handleClick(index: number, toggle: () => void) {
     setActive(index)
@@ -50,7 +51,7 @@ export default function Navbar() {
           </>
         ) : (
           // If the user is authenticated, show the log-out button
-          <Button variant="light" onClick={logOut}>
+          <Button variant="light" onClick={() => logOut(navigate)}>
             Log out
           </Button>
         )}
