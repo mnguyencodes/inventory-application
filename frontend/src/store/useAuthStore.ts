@@ -4,6 +4,7 @@ import { create } from 'zustand'
 interface AuthState {
   isAuthenticated: boolean
   logIn: (token: string) => void
+  // logOut is a function that takes a navigate function as an argument
   logOut: (navigate: (path: string) => void) => void
 }
 
