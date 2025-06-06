@@ -1,8 +1,11 @@
+// When the user signs in, they will receive a JWT token that they can use to access protected routes.
+
 import { Button, TextInput, PasswordInput } from '@mantine/core'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router'
 import axios from 'axios'
 import { useMutation } from '@tanstack/react-query'
+import { useAuth } from '../context/AuthContext'
 import formStyles from './_styles/Form.module.css'
 import styles from './_styles/LogIn.module.css'
 
@@ -25,8 +28,8 @@ interface FormInputs {
 }
 
 export default function LogIn() {
+  const { logIn } = useAuth() // Get the logIn function from the AuthContext
   const { register } = useForm<FormInputs>()
-
   const navigate = useNavigate()
 
   const mutation = useMutation({
@@ -40,9 +43,7 @@ export default function LogIn() {
     },
     onSuccess: (data) => {
       alert(`Success! ${data.message}`)
-
-      localStorage.setItem('token', data.token)
-
+      logIn(data.token) // Update the authentication state with the token
       navigate('/dashboard')
     },
     onError: (error: MutationError) => {
