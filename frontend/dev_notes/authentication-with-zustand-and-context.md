@@ -20,6 +20,12 @@ This document explains how to implement authentication in a React application us
      - Reads the `isAuthenticated` state to conditionally render buttons.
      - Calls the `logOut` action to log out the user and redirect them to the log-in page.
 
+### React and Zustand - Further Reading
+
+Combining Zustand with React Context to share the store instance is a great solution.
+
+https://tkdodo.eu/blog/zustand-and-react-context
+
 ### How It Works
 
 1. When the user logs in:
