@@ -3,3 +3,10 @@ import asyncHandler from 'express-async-handler'
 import { Request, Response } from 'express'
 import pool from '../db/pool'
 
+interface RequestWithUser extends Request {
+  user?: {
+    id?: number
+    firstName?: string
+  }
+}
+
