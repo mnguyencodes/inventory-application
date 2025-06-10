@@ -10,3 +10,6 @@ interface RequestWithUser extends Request {
   }
 }
 
+const dashboardGet = asyncHandler(async (req: RequestWithUser, res: Response) => {
+})
+export default { dashboardGet }
