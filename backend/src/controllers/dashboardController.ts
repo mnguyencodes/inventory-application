@@ -11,5 +11,9 @@ interface RequestWithUser extends Request {
 }
 
 const dashboardGet = asyncHandler(async (req: RequestWithUser, res: Response) => {
-})
+  // Check if the user is authenticated
+  if (!req.user) {
+    res.status(401).json({ message: 'Please log in to access this resource.' })
+    return
+  }
 export default { dashboardGet }
