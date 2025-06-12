@@ -16,4 +16,9 @@ const dashboardGet = asyncHandler(async (req: RequestWithUser, res: Response) =>
     res.status(401).json({ message: 'Please log in to access this resource.' })
     return
   }
+  // Fetch the user's real name from the database
+  const user = await pool.user.findUnique({
+    where: { id: req.user.id },
+    select: { firstName: true },
+  })
 export default { dashboardGet }
