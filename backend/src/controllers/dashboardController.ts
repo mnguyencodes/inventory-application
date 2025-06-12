@@ -27,4 +27,8 @@ const dashboardGet = asyncHandler(async (req: RequestWithUser, res: Response) =>
     return
   }
 
+  // Send back only the user's real name
+  res.json({ firstName: user.firstName })
+})
+
 export default { dashboardGet }
