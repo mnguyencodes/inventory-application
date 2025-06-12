@@ -21,4 +21,10 @@ const dashboardGet = asyncHandler(async (req: RequestWithUser, res: Response) =>
     where: { id: req.user.id },
     select: { firstName: true },
   })
+
+  if (!user) {
+    res.status(404).json({ message: 'User not found.' })
+    return
+  }
+
 export default { dashboardGet }
