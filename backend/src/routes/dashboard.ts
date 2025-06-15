@@ -1,10 +1,10 @@
 // Route for the dashboard
 import { Router } from 'express'
 import dashboardController from '../controllers/dashboardController'
-import auth from '../utils/jwtAuth'
+import jwtAuth from '../utils/jwtAuth'
 
 export const dashboardRouter = Router()
 
-dashboardRouter.get('/', auth.authenticate, dashboardController.dashboardGet)
+dashboardRouter.get('/', jwtAuth.authenticate, dashboardController.dashboardGet)
 
 export default dashboardRouter
