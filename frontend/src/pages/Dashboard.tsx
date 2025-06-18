@@ -10,17 +10,9 @@ export default function Dashboard() {
       state: { from: '/dashboard' }, // Optional: pass state to redirect back after login
     })
   }
-  if (isAuthenticated) {
-    return (
-      <div>
-        <h1>Dashboard component here! You are signed in!</h1>
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        <h1>Please log in to access the dashboard.</h1>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <h1>Dashboard component here! You are signed in!</h1>
+    </div>
+  )
 }
