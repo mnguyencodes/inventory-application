@@ -12,6 +12,7 @@ export default function Dashboard() {
   }
   return (
     <div>
+      {/* The user isn't redirected to the log-in page as planned. */}
       <h1>Dashboard component here! You are signed in!</h1>
     </div>
   )
