@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router'
 
 export default function Dashboard() {
   const { isAuthenticated } = useAuth()
+  // TODO: useNavigate should not be used directly in the component body
+  //      but rather in a useEffect hook to avoid side effects during render.
   const navigate = useNavigate()
   if (!isAuthenticated) {
     navigate('/users/log-in', {
