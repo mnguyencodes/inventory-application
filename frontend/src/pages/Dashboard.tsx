@@ -1,4 +1,5 @@
 import { useAuth } from '../context/AuthContext'
+import { useNavigate } from 'react-router'
 
 export default function Dashboard() {
   const { isAuthenticated } = useAuth()
