@@ -19,7 +19,6 @@ export default function Dashboard() {
   } else {
     return (
       <div>
-        {/* TODO: Redirect the user instead of rendering a message */}
         <h1>Please log in to access the dashboard.</h1>
       </div>
     )
