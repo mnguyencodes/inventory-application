@@ -7,12 +7,15 @@ export default function Dashboard() {
   // TODO: useNavigate should not be used directly in the component body
   //      but rather in a useEffect hook to avoid side effects during render.
   const navigate = useNavigate()
-  if (!isAuthenticated) {
-    navigate('/users/log-in', {
-      replace: true, // Replace the current entry in the history stack
-      state: { from: '/dashboard' }, // Optional: pass state to redirect back after login
-    })
-  }
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/users/log-in', {
+        replace: true, // Replace the current entry in the history stack
+        state: { from: '/dashboard' }, // Optional: pass state to redirect back after login
+      })
+    }
+  }, [isAuthenticated, navigate])
+
   return (
     <div>
       {/* The user isn't redirected to the log-in page as planned. */}
