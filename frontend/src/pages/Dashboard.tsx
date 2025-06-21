@@ -2,6 +2,8 @@ import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router'
 import { useEffect } from 'react'
 
+// TODO: Render a dynamic welcome message that includes the user's name.
+
 export default function Dashboard() {
   const { isAuthenticated } = useAuth()
 
