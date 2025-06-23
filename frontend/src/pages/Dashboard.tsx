@@ -2,6 +2,7 @@ import { useAuth } from '../context/AuthContext'
 import { useNavigate } from 'react-router'
 import { useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
 
 // TODO: Render a dynamic welcome message that includes the user's name.
 
