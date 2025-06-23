@@ -8,8 +8,12 @@ import axios from 'axios'
 
 export default function Dashboard() {
   const { isAuthenticated } = useAuth()
-
   const navigate = useNavigate()
+
+  // Fetch user's name using React Query
+  const { data, isLoading, error } = useQuery({
+  })
+
   useEffect(() => {
     if (!isAuthenticated) {
       navigate('/users/log-in', {
