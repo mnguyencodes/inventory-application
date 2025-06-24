@@ -21,6 +21,7 @@ export default function Dashboard() {
       })
       return response.data.firstName
     },
+    enabled: isAuthenticated, // Only run if authenticated
   })
 
   useEffect(() => {
