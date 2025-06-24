@@ -13,6 +13,14 @@ export default function Dashboard() {
   // Fetch user's name using React Query
   const { data, isLoading, error } = useQuery({
     queryKey: ['userFirstName'], // Unique key for the query
+    queryFn: async () => {
+      const response = await axios.get('http://localhost:3000/dashboard', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      })
+      return response.data.firstName
+    },
   })
 
   useEffect(() => {
