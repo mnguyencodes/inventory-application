@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 // TODO: Render a dynamic welcome message that includes the user's name.
+// Achieved an all-time high score of 65 points in the subnetting game at subnetting.net
 
 export default function Dashboard() {
   const { isAuthenticated } = useAuth()
