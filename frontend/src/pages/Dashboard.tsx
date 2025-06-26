@@ -39,7 +39,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1>Dashboard component here! You are signed in!</h1>
+      <h1>Welcome, {data}</h1>
     </div>
   )
 }
