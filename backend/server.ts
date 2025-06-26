@@ -2,6 +2,7 @@ import '@dotenvx/dotenvx/config'
 import express from 'express'
 import { gameRouter } from './src/routes/game'
 import userRouter from './src/routes/user'
+import dashboardRouter from './src/routes/dashboard'
 import { corsUtil } from './src/utils/cors'
 import { errorHandler } from './src/errors/errorHandler'
 
