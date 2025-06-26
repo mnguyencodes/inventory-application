@@ -34,6 +34,9 @@ export default function Dashboard() {
     }
   }, [isAuthenticated, navigate])
 
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Error loading dashboard.</div>
+
   return (
     <div>
       <h1>Dashboard component here! You are signed in!</h1>
