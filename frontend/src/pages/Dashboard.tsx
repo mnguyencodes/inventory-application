@@ -20,6 +20,8 @@ export default function Dashboard() {
       return response.data.firstName
     },
     enabled: isAuthenticated, // Only run if authenticated
+    staleTime: 1000 * 60 * 5, // Cache for 5 minutes
+    refetchOnWindowFocus: false, // Do not refetch on window focus
   })
 
   useEffect(() => {
