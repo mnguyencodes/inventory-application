@@ -4,7 +4,7 @@ import DuplicateEmailError from '../errors/duplicateEmailError'
 import pool from '../db/pool'
 import bcrypt from 'bcryptjs'
 import jwt from '../utils/jwt'
-import auth from '../utils/auth'
+import jwtAuth from '../utils/jwtAuth'
 
 const usersPost = asyncHandler(async (req: Request, res: Response) => {
   const { firstName, lastName, email, password } = req.body
@@ -37,7 +37,7 @@ const usersPost = asyncHandler(async (req: Request, res: Response) => {
 })
 
 const usersGet = [
-  auth.authenticate, // Authenticate the user using the JWT strategy
+  jwtAuth.authenticate, // Authenticate the user using the JWT strategy
   asyncHandler(async (req: Request, res: Response) => {
     const allUsers = await pool.user.findMany()
 

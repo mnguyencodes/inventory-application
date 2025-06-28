@@ -2,13 +2,14 @@ import '@dotenvx/dotenvx/config'
 import express from 'express'
 import { gameRouter } from './src/routes/game'
 import userRouter from './src/routes/user'
+import dashboardRouter from './src/routes/dashboard'
 import { corsUtil } from './src/utils/cors'
 import { errorHandler } from './src/errors/errorHandler'
 
 const server = express()
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
-server.use(corsUtil)
+server.use(corsUtil) // Enable CORS for all routes
 
 server.get('/', (req, res, next) => {
   res.send('Welcome to the homepage!')
@@ -16,6 +17,7 @@ server.get('/', (req, res, next) => {
 
 server.use('/games', gameRouter)
 server.use('/users', userRouter)
+server.use('/dashboard', dashboardRouter)
 
 server.use(errorHandler)
 
