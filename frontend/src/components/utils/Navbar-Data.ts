@@ -6,6 +6,7 @@ interface MyNavLinkProps extends NavLinkProps {
   icon: ForwardRefExoticComponent<IconProps>
   href: string
   text: string
+  authOnly?: boolean // Optional property to indicate if the link requires authentication
 }
 
 const navbarData: MyNavLinkProps[] = [
