@@ -20,6 +20,12 @@ const navbarData: MyNavLinkProps[] = [
     text: 'Games',
     icon: IconDeviceGamepad2,
   },
+  {
+    href: '/games/manage',
+    text: 'Manage Games',
+    icon: IconDeviceGamepad2,
+    authOnly: true,
+  },
 ]
 
 export default navbarData
