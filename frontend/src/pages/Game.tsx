@@ -1,4 +1,5 @@
 import { useFetch } from '@mantine/hooks'
+import { useQuery } from '@tanstack/react-query'
 import styles from './_styles/Game.module.css'
 
 interface Game {
