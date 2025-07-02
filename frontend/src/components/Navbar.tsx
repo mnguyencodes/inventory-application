@@ -11,6 +11,7 @@ import { useState } from 'react'
 import styles from './_styles/Navbar.module.css'
 
 // Achieved a new high score of 66 points in the subnetting game at subnetting.net.
+// Achieved a new high score of 68 points in the subnetting game at subnetting.net.
 
 export default function Navbar() {
   const { toggle } = useContext(AppShellInitContext)
