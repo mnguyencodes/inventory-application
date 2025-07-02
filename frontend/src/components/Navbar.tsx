@@ -24,20 +24,7 @@ export default function Navbar() {
     toggle()
   }
 
-  const navbarEl = navbarData.map((navlink, index) => {
-    return (
-      <NavLinkMantine
-        component={NavLink}
-        to={navlink.href}
-        key={navlink.text}
-        label={navlink.text}
-        active={index === active}
-        leftSection={<navlink.icon size={16} stroke={1.5} />}
-        onClick={() => handleClick(index, toggle)}
-        variant="filled"
-      />
-    )
-  })
+  // Navbar elements are dynamically generated based on the navbarData array.
 
   return (
     <AppShell.Navbar className={styles.nav} p="md">
