@@ -1,5 +1,6 @@
 import queries, { Genre, Developer } from '../db/queries'
 import asyncHandler from 'express-async-handler'
+import pool from '../db/pool'
 
 const gamesPost = async (
   title: string,
