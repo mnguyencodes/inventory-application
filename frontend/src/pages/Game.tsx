@@ -1,5 +1,6 @@
 import { useFetch } from '@mantine/hooks'
 import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
 import styles from './_styles/Game.module.css'
 
 interface Game {
