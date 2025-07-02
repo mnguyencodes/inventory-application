@@ -13,7 +13,12 @@ const gamesPost = async (
 }
 
 const gamesGet = asyncHandler(async (req: Request, res: Response) => {
-  const allGames = await pool.game.findMany()
+  const allGames = await pool.game.findMany({
+    include: {
+      genre: true,
+      developer: true,
+    },
+  })
   res.send({ allGames })
 })
 
