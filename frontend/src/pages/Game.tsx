@@ -31,6 +31,14 @@ export default function Game() {
     },
   })
 
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>
+  }
+
   const gamesEl =
     data &&
     data.map((game) => {
