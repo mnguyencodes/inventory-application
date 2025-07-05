@@ -40,8 +40,8 @@ export default function Game() {
   }
 
   const gamesEl =
-    data &&
-    data.map((game) => {
+    data?.allGames &&
+    data.allGames.map((game: Game) => {
       const genres = game.genre
         .map((genre) => {
           return genre.name
