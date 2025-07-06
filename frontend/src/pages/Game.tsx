@@ -70,7 +70,8 @@ export default function Game() {
   return (
     <>
       <section className={styles.gamesContainer}>
-        {gamesEl ? gamesEl : <h1>Game component goes here!</h1>}
+        <h1>Game Component</h1>
+        {gamesEl && gamesEl}
       </section>
     </>
   )
