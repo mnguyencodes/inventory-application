@@ -21,8 +21,6 @@ type Developer = {
 }
 
 export default function Game() {
-  // const { data, loading, error, refetch, abort } = useFetch<Game[]>('http://localhost:3000/games')
-
   const { data, isLoading, error } = useQuery({
     queryKey: ['games'],
     queryFn: async () => {
