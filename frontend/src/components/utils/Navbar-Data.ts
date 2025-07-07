@@ -6,6 +6,7 @@ interface MyNavLinkProps extends NavLinkProps {
   icon: ForwardRefExoticComponent<IconProps>
   href: string
   text: string
+  authOnly?: boolean // Optional property to indicate if the link requires authentication
 }
 
 const navbarData: MyNavLinkProps[] = [
@@ -18,6 +19,12 @@ const navbarData: MyNavLinkProps[] = [
     href: '/games',
     text: 'Games',
     icon: IconDeviceGamepad2,
+  },
+  {
+    href: '/games/manage',
+    text: 'Manage Games',
+    icon: IconDeviceGamepad2,
+    authOnly: true,
   },
 ]
 

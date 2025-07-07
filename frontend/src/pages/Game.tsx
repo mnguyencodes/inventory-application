@@ -1,4 +1,6 @@
 import { useFetch } from '@mantine/hooks'
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
 import styles from './_styles/Game.module.css'
 
 interface Game {
@@ -19,13 +21,25 @@ type Developer = {
 }
 
 export default function Game() {
-  const { data, loading, error, refetch, abort } = useFetch<Game[]>(
-    'http://localhost:3000/games'
-  )
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['games'],
+    queryFn: async () => {
+      const response = await axios.get('http://localhost:3000/games')
+      return response.data
+    },
+  })
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>
+  }
 
   const gamesEl =
-    data &&
-    data.map((game) => {
+    data?.allGames &&
+    data.allGames.map((game: Game) => {
       const genres = game.genre
         .map((genre) => {
           return genre.name
@@ -56,7 +70,8 @@ export default function Game() {
   return (
     <>
       <section className={styles.gamesContainer}>
-        {gamesEl ? gamesEl : <h1>Game component goes here!</h1>}
+        <h1>Game Component</h1>
+        {gamesEl && gamesEl}
       </section>
     </>
   )

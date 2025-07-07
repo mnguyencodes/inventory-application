@@ -10,6 +10,9 @@ import { useContext } from 'react'
 import { useState } from 'react'
 import styles from './_styles/Navbar.module.css'
 
+// Achieved a new high score of 66 points in the subnetting game at subnetting.net.
+// Achieved a new high score of 68 points in the subnetting game at subnetting.net.
+
 export default function Navbar() {
   const { toggle } = useContext(AppShellInitContext)
   const [active, setActive] = useState<number | null>(null)
@@ -21,20 +24,23 @@ export default function Navbar() {
     toggle()
   }
 
-  const navbarEl = navbarData.map((navlink, index) => {
-    return (
-      <NavLinkMantine
-        component={NavLink}
-        to={navlink.href}
-        key={navlink.text}
-        label={navlink.text}
-        active={index === active}
-        leftSection={<navlink.icon size={16} stroke={1.5} />}
-        onClick={() => handleClick(index, toggle)}
-        variant="filled"
-      />
-    )
-  })
+  // Navbar elements are dynamically generated based on the navbarData array.
+  const navbarEl = navbarData
+    .filter((navLink) => !navLink.authOnly || isAuthenticated) // Filter links based on authentication status
+    .map((navlink, index) => {
+      return (
+        <NavLinkMantine
+          component={NavLink}
+          to={navlink.href}
+          key={navlink.text}
+          label={navlink.text}
+          active={index === active}
+          leftSection={<navlink.icon size={16} stroke={1.5} />}
+          onClick={() => handleClick(index, toggle)}
+          variant="filled"
+        />
+      )
+    })
 
   return (
     <AppShell.Navbar className={styles.nav} p="md">
