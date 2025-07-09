@@ -14,9 +14,11 @@ const manageGamesPost = asyncHandler(async (req: Request, res: Response) => {
       title,
       year,
       genre: {
+        // Use connectOrCreate to link existing genres or create new ones
         connectOrCreate: genre.map((g: string) => ({ name: g })),
       },
       developer: {
+        // Use connectOrCreate to link existing developers or create new ones
         connectOrCreate: developer.map((d: string) => ({ name: d })),
       },
     },
