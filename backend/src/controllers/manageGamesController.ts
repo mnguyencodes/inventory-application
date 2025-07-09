@@ -8,4 +8,4 @@ import pool from '../db/pool'
 import jwtAuth from '../utils/jwtAuth'
 
 const manageGamesPost = asyncHandler(async (req: Request, res: Response) => {
-})
+  const { title, year, genre, developer } = req.body
