@@ -9,3 +9,15 @@ import jwtAuth from '../utils/jwtAuth'
 
 const manageGamesPost = asyncHandler(async (req: Request, res: Response) => {
   const { title, year, genre, developer } = req.body
+  const newGame = await pool.game.create({
+    data: {
+      title,
+      year,
+      genre: {
+        connectOrCreate: genre.map((g: string) => ({ name: g })),
+      },
+      developer: {
+        connectOrCreate: developer.map((d: string) => ({ name: d })),
+      },
+    },
+  })
