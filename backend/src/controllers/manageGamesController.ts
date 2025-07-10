@@ -23,3 +23,7 @@ const manageGamesPost = asyncHandler(async (req: Request, res: Response) => {
       },
     },
   })
+  res.status(201).json({
+    message: 'Game created successfully',
+    game: newGame,
+  })
