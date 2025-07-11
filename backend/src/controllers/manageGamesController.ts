@@ -40,3 +40,5 @@ const manageGamesGet = asyncHandler(async (req: Request, res: Response) => {
     },
   })
 })
+
+export default { manageGamesPost, manageGamesGet }
