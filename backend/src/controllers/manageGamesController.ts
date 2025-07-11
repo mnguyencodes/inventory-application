@@ -31,3 +31,12 @@ const manageGamesPost = [
     })
   }),
 ]
+
+const manageGamesGet = asyncHandler(async (req: Request, res: Response) => {
+  const games = await pool.game.findMany({
+    include: {
+      genre: true,
+      developer: true,
+    },
+  })
+})
