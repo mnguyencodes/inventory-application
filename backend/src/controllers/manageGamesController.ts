@@ -32,13 +32,17 @@ const manageGamesPost = [
   }),
 ]
 
-const manageGamesGet = asyncHandler(async (req: Request, res: Response) => {
-  const games = await pool.game.findMany({
-    include: {
-      genre: true,
-      developer: true,
-    },
-  })
-})
+const manageGamesGet = [
+  jwtAuth.authenticate,
+  asyncHandler(async (req: Request, res: Response) => {
+    const games = await pool.game.findMany({
+      include: {
+        genre: true,
+        developer: true,
+      },
+    })
+    res.status(200).json(games)
+  }),
+]
 
 export default { manageGamesPost, manageGamesGet }
