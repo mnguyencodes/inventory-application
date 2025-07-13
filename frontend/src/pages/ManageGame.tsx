@@ -4,4 +4,4 @@ import { useQuery } from '@tanstack/react-query' // data fetching
 import { useReactTable, getCoreRowModel, flexRender } from '@tanstack/react-table' // table functionality
 import useMutation from '@tanstack/react-query' // change data on server
 import axios from 'axios' // make HTTP requests
-import useAuth from '../context/AuthContext' // check authentication state
+import { useAuth } from '../context/AuthContext' // check authentication state
