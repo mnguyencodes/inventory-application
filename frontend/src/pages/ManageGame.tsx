@@ -13,3 +13,10 @@ import {
 import useMutation from '@tanstack/react-query' // change data on server
 import axios from 'axios' // make HTTP requests
 import { useAuth } from '../context/AuthContext' // check authentication state
+
+interface Game {
+  id: number
+  name: string
+  genre: string
+  developer: string
+}
