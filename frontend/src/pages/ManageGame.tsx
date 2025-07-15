@@ -20,3 +20,11 @@ interface Game {
   genre: string
   developer: string
 }
+
+export default function ManageGame() {
+  return (
+    <div>
+      <h2>Manage Games</h2>
+    </div>
+  )
+}
