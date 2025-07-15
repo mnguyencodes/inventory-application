@@ -22,6 +22,10 @@ interface Game {
 }
 
 export default function ManageGame() {
+  const { isAuthenticated } = useAuth() // check if user is authenticated
+  if (!isAuthenticated) {
+    throw new Error('User is not authenticated')
+  }
   return (
     <div>
       <h2>Manage Games</h2>
