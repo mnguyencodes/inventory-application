@@ -27,6 +27,8 @@ export default function ManageGame() {
     throw new Error('User is not authenticated')
   }
   const token = localStorage.getItem('token') // get token from local storage
+  const { data, isLoading, error } = useQuery<Game[]>({
+  })
   return (
     <div>
       <h2>Manage Games</h2>
