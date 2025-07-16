@@ -26,6 +26,7 @@ export default function ManageGame() {
   if (!isAuthenticated) {
     throw new Error('User is not authenticated')
   }
+  const token = localStorage.getItem('token') // get token from local storage
   return (
     <div>
       <h2>Manage Games</h2>
