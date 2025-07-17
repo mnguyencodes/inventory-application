@@ -28,7 +28,15 @@ export default function ManageGame() {
   }
   const token = localStorage.getItem('token') // get token from local storage
   const { data, isLoading, error } = useQuery<Game[]>({
-  })
+    queryKey: ['games'],
+    queryFn: async () => {
+      const response = await axios.get('http://localhost:3000/games', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      return response.data
+    },
   return (
     <div>
       <h2>Manage Games</h2>
