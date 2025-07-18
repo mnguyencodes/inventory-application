@@ -16,7 +16,8 @@ import { useAuth } from '../context/AuthContext' // check authentication state
 
 interface Game {
   id: number
-  name: string
+  title: string
+  year: number
   genre: string
   developer: string
 }
