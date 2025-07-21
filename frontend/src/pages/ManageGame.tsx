@@ -50,6 +50,12 @@ export default function ManageGame() {
     { accessorKey: 'genre', header: 'Genre' },
     { accessorKey: 'developer', header: 'Developer' },
   ]
+
+  const table = useReactTable({
+    data: data ?? [],
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  })
   return (
     <div>
       <h2>Manage Games</h2>
