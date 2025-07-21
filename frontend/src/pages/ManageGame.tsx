@@ -44,6 +44,12 @@ export default function ManageGame() {
     staleTime: 1000 * 60 * 5,
     refetchOnWindowFocus: false,
   })
+  const columns = [
+    { accessorKey: 'title', header: 'Title' },
+    { accessorKey: 'year', header: 'Year' },
+    { accessorKey: 'genre', header: 'Genre' },
+    { accessorKey: 'developer', header: 'Developer' },
+  ]
   return (
     <div>
       <h2>Manage Games</h2>
