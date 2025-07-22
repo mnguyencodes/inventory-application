@@ -56,6 +56,10 @@ export default function ManageGame() {
     columns,
     getCoreRowModel: getCoreRowModel(),
   })
+
+  if (isLoading) return <div>Loading games...</div>
+  if (error) return <div>Error loading games.</div>
+
   return (
     <div>
       <h2>Manage Games</h2>
