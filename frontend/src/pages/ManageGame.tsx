@@ -64,6 +64,8 @@ export default function ManageGame() {
     <div>
       <h2>Manage Games</h2>
       <table>
+        <thead>
+        </thead>
       </table>
     </div>
   )
