@@ -63,6 +63,8 @@ export default function ManageGame() {
   return (
     <div>
       <h2>Manage Games</h2>
+      <table>
+      </table>
     </div>
   )
 }
