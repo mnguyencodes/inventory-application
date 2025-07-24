@@ -1,6 +1,7 @@
 // This component provides functionality to manage games, including creating and listing games.
 
 // Achieved a new high score of 74 points in the subnetting game at subnetting.net.
+// Achieved a new high score of 76 points in the subnetting game at subnetting.net.
 
 import { useQuery } from '@tanstack/react-query' // data fetching
 import {
