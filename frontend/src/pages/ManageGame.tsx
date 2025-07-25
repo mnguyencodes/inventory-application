@@ -66,6 +66,15 @@ export default function ManageGame() {
       <h2>Manage Games</h2>
       <table>
         <thead>
+          {table.getHeaderGroups().map((headerGroup: HeaderGroup<Game>) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header: Header<Game, unknown>) => (
+                <th key={header.id}>
+                  {flexRender(header.column.columnDef.header, header.getContext())}
+                </th>
+              ))}
+            </tr>
+          ))}
         </thead>
       </table>
     </div>
