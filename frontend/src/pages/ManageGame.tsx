@@ -76,6 +76,8 @@ export default function ManageGame() {
             </tr>
           ))}
         </thead>
+        <tbody>
+        </tbody>
       </table>
     </div>
   )
