@@ -65,6 +65,7 @@ export default function ManageGame() {
     <div>
       <h2>Manage Games</h2>
       <table>
+        {/* // Render the table header and body */}
         <thead>
           {table.getHeaderGroups().map((headerGroup: HeaderGroup<Game>) => (
             <tr key={headerGroup.id}>
