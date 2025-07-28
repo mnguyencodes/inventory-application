@@ -52,6 +52,7 @@ export default function ManageGame() {
     { accessorKey: 'developer', header: 'Developer' },
   ]
 
+  // Create a table instance with the data and columns
   const table = useReactTable({
     data: data ?? [],
     columns,
