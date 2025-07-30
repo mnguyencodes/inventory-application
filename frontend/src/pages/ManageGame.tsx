@@ -80,6 +80,13 @@ export default function ManageGame() {
           ))}
         </thead>
         <tbody>
+          {table.getRowModel().rows.map((row: Row<Game>) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell: Cell<Game, unknown>) => (
+                <td key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
