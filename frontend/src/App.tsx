@@ -1,3 +1,5 @@
+// TODO: Add the route for managing games
+
 import '@mantine/core/styles.css'
 import './_global.css'
 import { AuthProvider } from './context/AuthContext'
