@@ -19,6 +19,7 @@ server.get('/', (req, res, next) => {
 server.use('/games', gameRouter)
 server.use('/users', userRouter)
 server.use('/dashboard', dashboardRouter)
+server.use('/manage-games', manageGamesRouter)
 
 server.use(errorHandler)
 
