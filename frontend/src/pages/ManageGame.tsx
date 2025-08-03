@@ -34,7 +34,7 @@ export default function ManageGame() {
   const { data, isLoading, error } = useQuery<Game[]>({
     queryKey: ['games'],
     queryFn: async () => {
-      const response = await axios.get('http://localhost:3000/games', {
+      const response = await axios.get('http://localhost:3000/manage-games', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
