@@ -13,6 +13,7 @@ import Users from './pages/User'
 import SignUp from './pages/SignUp'
 import LogIn from './pages/LogIn'
 import Dashboard from './pages/Dashboard'
+import ManageGame from './pages/ManageGame'
 
 // AuthProvider is a context provider that wraps the application to provide authentication state.
 // MantineProvider is a provider for Mantine UI components.
