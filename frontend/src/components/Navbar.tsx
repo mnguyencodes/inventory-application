@@ -1,3 +1,7 @@
+// TODO: Dynamically render Manage Games link based on authentication state
+// Changes will need to be made in Navbar-Data.ts and Navbar.tsx
+// Ensure that the Manage Games link is only visible to authenticated users
+
 import navbarData from './utils/Navbar-Data'
 import { AppShellInitContext } from './AppShellInit'
 import { AppShell } from '@mantine/core'
