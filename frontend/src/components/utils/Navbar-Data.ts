@@ -1,6 +1,6 @@
 import { ForwardRefExoticComponent } from 'react'
 import { NavLinkProps } from '@mantine/core'
-import { IconDeviceGamepad2, IconHome, IconProps } from '@tabler/icons-react'
+import { IconDeviceGamepad2, IconHome, IconProps, IconSettings } from '@tabler/icons-react'
 
 interface MyNavLinkProps extends NavLinkProps {
   icon: ForwardRefExoticComponent<IconProps>
