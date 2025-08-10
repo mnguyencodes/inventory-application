@@ -25,7 +25,9 @@ export default function Navbar() {
     toggle()
   }
 
-  const navbarEl = navbarData.map((navlink, index) => {
+  const navbarEl = navbarData
+    .filter((navlink) => !navlink.authOnly || isAuthenticated) // Filter out links that require authentication if the user is not authenticated
+    .map((navlink, index) => {
     return (
       <NavLinkMantine
         component={NavLink}
