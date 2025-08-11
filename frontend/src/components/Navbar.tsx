@@ -25,22 +25,24 @@ export default function Navbar() {
     toggle()
   }
 
+  // Upgrade for higher limits, premium models, AI reviews. Free responses reset in 1 day.
+
   const navbarEl = navbarData
     .filter((navlink) => !navlink.authOnly || isAuthenticated) // Filter out links that require authentication if the user is not authenticated
     .map((navlink, index) => {
-    return (
-      <NavLinkMantine
-        component={NavLink}
-        to={navlink.href}
-        key={navlink.text}
-        label={navlink.text}
-        active={index === active}
-        leftSection={<navlink.icon size={16} stroke={1.5} />}
-        onClick={() => handleClick(index, toggle)}
-        variant="filled"
-      />
-    )
-  })
+      return (
+        <NavLinkMantine
+          component={NavLink}
+          to={navlink.href}
+          key={navlink.text}
+          label={navlink.text}
+          active={index === active}
+          leftSection={<navlink.icon size={16} stroke={1.5} />}
+          onClick={() => handleClick(index, toggle)}
+          variant="filled"
+        />
+      )
+    })
 
   return (
     <AppShell.Navbar className={styles.nav} p="md">
