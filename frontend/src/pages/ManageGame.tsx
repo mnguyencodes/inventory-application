@@ -45,6 +45,8 @@ export default function ManageGame() {
     staleTime: 1000 * 60 * 5,
     refetchOnWindowFocus: false,
   })
+
+  // Will need to customize cell rendering for genre and developer otherwise [object Object] will be shown
   const columns = [
     { accessorKey: 'title', header: 'Title' },
     { accessorKey: 'year', header: 'Year' },
