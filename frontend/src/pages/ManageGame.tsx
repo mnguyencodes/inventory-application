@@ -14,6 +14,7 @@ import {
   Header,
   Row,
   Cell,
+  CellContext,
 } from '@tanstack/react-table' // table functionality
 import useMutation from '@tanstack/react-query' // change data on server
 import axios from 'axios' // make HTTP requests
