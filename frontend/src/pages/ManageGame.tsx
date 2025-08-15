@@ -4,6 +4,7 @@
 // Achieved a new high score of 76 points in the subnetting game at subnetting.net.
 
 // Be the best person you can be. Be authentic.
+// Sent out two applications today.
 
 import { useQuery } from '@tanstack/react-query' // data fetching
 import {
