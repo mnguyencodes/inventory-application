@@ -5,6 +5,7 @@
 
 // Be the best person you can be. Be authentic.
 // Sent out two applications today.
+// "I want to work here." - Me, to myself.
 
 import { useQuery } from '@tanstack/react-query' // data fetching
 import {
